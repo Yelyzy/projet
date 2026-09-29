@@ -6,6 +6,7 @@
   align-self: stretch;
   border-top: 1px solid #1c1c1a;
   border-bottom: 1px solid #1c1c1a;
+  background: #f0eedf;
   width: 100%;
 }
 .nav-list {
@@ -46,7 +47,7 @@
 
 .dropdown-menu {
   margin-top: 0.62rem;
-  display: flex;
+  display: none;
   position: absolute;
   left: 0;
   width: 100%;
@@ -57,30 +58,18 @@
   border: 1px solid #000;
   background: #f0eedf;
   list-style: none;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-0.5rem);
-  transition:
-    opacity 180ms ease,
-    transform 180ms ease,
-    visibility 180ms ease;
-}
-
-.nav-item.is-open > .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
 }
 
 .dropdown-item a {
-  text-decoration: none;
   font-size: 1rem;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
   letter-spacing: -0.04rem;
+  text-decoration: none;
+}
+.dropdown-menu.open {
+  display: flex;
 }
 
 @media (max-width: 40rem) {
