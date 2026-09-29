@@ -1,0 +1,15 @@
+@import "font";
+@import "base";
+@import "layout";
+@import "modules/navigation";
+
+:root {
+  --font-family-sans: "IBM Plex Sans", sans-serif;
+  --color-text: #1c1c1a;
+}
+
+body {
+  padding-top: 100px;
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+}
