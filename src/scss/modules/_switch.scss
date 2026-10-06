@@ -1,0 +1,65 @@
+.theme-switch {
+  display: inline-block;
+
+  &__input {
+    display: none;
+  }
+
+  &__slider {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 3.3125rem;
+    height: 1.6875rem;
+
+    padding: 0.125rem 0.125rem 0.125rem 0;
+
+    border-radius: 1.875rem;
+
+    background: rgba(46, 53, 132, 0.5);
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &__thumb {
+    width: 1.4375rem;
+    height: 1.4375rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #eaecf2;
+  }
+
+  &__sun,
+  &__moon {
+    width: 14px;
+    height: 14px;
+    display: block;
+  }
+
+  &__moon {
+    display: none;
+  }
+
+  /* DARK MODE */
+
+  &__input:checked + &__slider {
+    justify-content: flex-start;
+    padding: 0.125rem 0 0.125rem 0.125rem;
+
+    background: rgba(46, 53, 132, 0.1);
+  }
+
+  &__input:checked + &__slider &__sun {
+    display: none;
+  }
+
+  &__input:checked + &__slider &__moon {
+    display: block;
+  }
+}

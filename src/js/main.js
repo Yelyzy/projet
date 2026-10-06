@@ -16,3 +16,10 @@ navItems.forEach((navitem) => {
 });
 
 // Si nous avons le temps, nous ajoutons des transitions
+
+// switch
+const switchInput = document.querySelector(".theme-switch__input");
+
+switchInput.addEventListener("change", () => {
+  document.body.classList.toggle("dark-mode");
+});
