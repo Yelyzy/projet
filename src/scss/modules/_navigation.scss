@@ -14,28 +14,21 @@
   width: 100%;
   justify-content: space-between;
   align-items: flex-start;
-
   flex-wrap: wrap;
   list-style: none;
 }
 
-.trigger {
-  align-self: stretch;
-  font-weight: 300;
-  line-height: 130%;
-  letter-spacing: -0.05rem;
+.main-nav .body-large {
   display: block;
   width: 100%;
   border: 0;
   background: none;
   color: var(--color-text);
-  font-family: inherit;
-  font-size: 1.25rem;
   text-align: center;
   cursor: pointer;
 }
 
-.trigger:focus-visible {
+.main-nav .body-large:focus-visible {
   outline: 0.125rem solid var(--color-thumb);
   outline-offset: -0.125rem;
 }
@@ -44,7 +37,6 @@
   position: relative;
   width: 20%;
 }
-
 .dropdown-menu {
   margin-top: 0.62rem;
   display: none;
@@ -60,12 +52,7 @@
   list-style: none;
 }
 
-.dropdown-item a {
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  letter-spacing: -0.04rem;
+.nav a {
   text-decoration: none;
 }
 .dropdown-menu.open {

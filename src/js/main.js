@@ -1,7 +1,7 @@
 const navItems = document.querySelectorAll(".nav-item");
 navItems.forEach((navitem) => {
   const dropdown = navitem.querySelector(".dropdown-menu");
-  const navButton = navitem.querySelector(".trigger");
+  const navButton = navitem.querySelector(".body-large");
 
   navButton.addEventListener("click", () => {
     const dropdowns = document.querySelectorAll(".dropdown-menu");
