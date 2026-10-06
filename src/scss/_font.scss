@@ -1,0 +1,234 @@
+/* ---------- @font-face ---------- */
+@font-face {
+  font-family: "Akke Variable TRIAL";
+  src: url("../font/akke-trial/AkkeVariable[XHGT,opsz,wdth,wght].woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../font/cabinet-grotesk/CabinetGrotesk-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../font/cabinet-grotesk/CabinetGrotesk-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../font/cabinet-grotesk/CabinetGrotesk-Extrabold.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+:root {
+  /* ---------- Font families ---------- */
+  --font-display: "Akke Variable TRIAL", "Times New Roman", serif;
+  --font-grotesk: "Cabinet Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body:
+    "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-family-sans: var(--font-body); /* алиас для body */
+
+  /* ---------- Font weights ---------- */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-extrabold: 800;
+
+  /* ---------- Font sizes (desktop) ---------- */
+  --fs-h1: 4rem;
+  --fs-h2: 3rem;
+  --fs-h3: 2rem;
+  --fs-h4: 1.5rem;
+  --fs-body-1: 1.25rem;
+  --fs-body-2: 1.125rem;
+  --fs-body-3: 1rem;
+  --fs-body-4: 0.875rem;
+  --fs-body-5: 0.75rem;
+
+  /* ---------- Line heights ---------- */
+  --lh-auto: normal;
+  --lt-900: 0.9;
+  --lh-100: 1;
+  --lh-110: 1.1;
+  --lh-130: 1.3;
+
+  /* ---------- Letter spacing (% → em) ---------- */
+  --ls-tight: -0.03em; /* -3% */
+  --ls-0: 0;
+  --ls-1: 0.01em; /* 1% */
+  --ls-2: 0.02em; /* 2% */
+  --ls-6: 0.06em; /* 6% */
+}
+
+/* ---------- Font sizes (mobile) — значения из Figma Variables, режим "mobile" ---------- */
+@media (max-width: 767px) {
+  :root {
+    --fs-h1: 2.25rem;
+    --fs-h2: 1.875rem;
+    --fs-h3: 1.25rem;
+    --fs-h4: 1rem;
+    --fs-body-1: 1.125rem; /* large-semibold + large */
+    --fs-body-2: 1rem;
+    --fs-body-3: 0.875rem;
+    --fs-body-4: 0.875rem;
+    --fs-body-5: 0.75rem;
+  }
+}
+
+// h1
+.title-main {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-90);
+  letter-spacing: var(--ls-tight);
+  text-transform: uppercase;
+}
+
+.title-numbers {
+  font-family: var(--font-grotesk);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-auto);
+  letter-spacing: var(--ls-tight);
+  text-transform: lowercase;
+}
+
+// h2
+.title-small {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-100);
+  letter-spacing: var(--ls-tight);
+  text-transform: uppercase;
+}
+
+.title-small-numbers {
+  font-family: var(--font-grotesk);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-auto);
+  letter-spacing: var(--ls-tight);
+  text-transform: lowercase;
+}
+
+// h3
+.h3-extrabold {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-110);
+  letter-spacing: var(--ls-2);
+  text-transform: uppercase;
+}
+
+.h3-regular {
+  font-family: var(--font-grotesk);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-110);
+  letter-spacing: var(--ls-2);
+  text-transform: uppercase;
+}
+
+// h4
+.h4-extrabold {
+  font-family: var(--font-grotesk);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-110);
+  letter-spacing: var(--ls-2);
+  text-transform: uppercase;
+}
+
+.h4-regular {
+  font-family: var(--font-grotesk);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-110);
+  letter-spacing: var(--ls-6);
+  text-transform: uppercase;
+}
+
+// body
+.body-semibold {
+  font-family: "IBM Plex Sans";
+  font-size: var(--body-large-semibold-large, 1.25rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.body-large {
+  font-family: "IBM Plex Sans";
+  font-size: var(--body-large-semibold-large, 1.25rem);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%;
+}
+
+.body-regular {
+  font-family: "IBM Plex Sans";
+  font-size: var(--body-regular, 1.125rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 1.4625rem */
+  letter-spacing: 0.0225rem;
+}
+
+.body-small {
+  font-family: "IBM Plex Sans";
+  font-size: var(--body-small, 0.875rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 1.1375rem */
+  letter-spacing: 0.00875rem;
+}
+
+// highlights
+.quote {
+  font-family: "IBM Plex Sans";
+  font-size: var(--highlights-quote, 1.25rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 130%; /* 1.625rem */
+}
+
+.nav {
+  font-family: "IBM Plex Sans";
+  font-size: var(--body-regular, 1.125rem);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%; /* 1.4625rem */
+  letter-spacing: 0.0225rem;
+}
+
+.rubriques {
+  font-family: "Cabinet Grotesk";
+  font-size: var(--highlights-rubriques-uppercase, 1rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 1.3rem */
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+}
+
+.tag {
+  font-family: "IBM Plex Sans";
+  font-size: var(--highlights-tag, 0.75rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 0.975rem */
+  letter-spacing: 0.015rem;
+}
