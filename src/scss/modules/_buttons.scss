@@ -1,0 +1,60 @@
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+
+  border: none;
+  cursor: pointer;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  text-decoration: none;
+
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+/* Subscribe */
+
+.btn--subscribe {
+  padding: 1rem 4rem;
+
+  /* changer la clases de couleurs  */
+
+  background: var(--Button-bg-black, #1c1c1a);
+  color: var(--Texte-white, #f5f5f5);
+
+  /* ajouter les vrai variables typo :D  */
+
+  font-size: var(--body-large-semibold-large, 1.25rem);
+  font-weight: 300;
+  line-height: 130%;
+
+  text-transform: uppercase;
+}
+
+/* Read More */
+
+.btn--read-more {
+  background: var(--Primary-Blue-100, #2e3584);
+  color: var(--Texte-white, #f5f5f5);
+
+  font-size: var(--body-large-semibold-large, 1.25rem);
+  font-weight: 300;
+  line-height: 130%;
+}
+
+/* Big */
+
+.btn--read-more-big {
+  padding: 0.375rem 2rem;
+}
+
+/* Small */
+
+.btn--read-more-small {
+  padding: 0.25rem 1rem;
+}
