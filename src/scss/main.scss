@@ -7,30 +7,81 @@
 @import "modules/footer";
 @import "modules/buttons";
 @import "modules/switch";
-:root {
-  // Accent
-  --accent-red-small-50: rgba(211, 29, 9, 0.5);
-  --accent-red-small-100: #d31d09;
-  --accent-orange-light-100: #ff866b;
 
-  // Primary
-  --primary-blue-10: rgba(46, 53, 132, 0.1);
-  --primary-blue-50: rgba(46, 53, 132, 0.5);
-  --primary-blue-100: #2e3584;
-  --primary-red-main-100: #f64222;
+:root [data-mode="light"] {
+  // Logo
+  --logo-main: #2e3584;
+  --logo-white: #f5f5f5;
 
-  // Secondary
-  --secondary-blue-20: rgba(234, 236, 242, 0.2);
-  --secondary-blue-50: rgba(234, 236, 242, 0.5);
-  --secondary-blue-100: #eaecf2;
+  // Text
+  --text-main: #2e3584;
+  --text-white: #f5f5f5;
+  --text-black-100: #1c1c1a;
+  --text-black-40: rgba(28, 28, 26, 0.4);
+  --text-red-main: #f64222;
+  --text-red-small: #d31d09;
+  --text-orange-light: #ff866b;
 
-  // Neutral
-  --neutral-black-100: #1c1c1a;
-  --neutral-black-40: rgba(28, 28, 26, 0.4);
-  --neutral-white-100: #f5f5f5;
+  // Header
+  --header-bg: rgba(234, 236, 242, 0.2);
+  --header-filters-bg: rgba(46, 53, 132, 0.1);
+  --header-filters-texte: rgba(46, 53, 132, 0.5);
 
-  // Used in dark mode
-  --night-blue-100: #0b0d27;
-  --night-blue-20: rgba(11, 13, 39, 0.2);
-  --dark-night-blue: #05061a;
+  //Background
+  --background-full-page: #eaecf2;
+  --background-section-contrast: #2e3584;
+
+  //Stroke
+  --stroke-main: #2e3584;
+  --stroke-black: #1c1c1a;
+  --stroke-red: #d31d09;
+  --stroke-white: #f5f5f5;
+
+  // Button
+  --button-bg-black: #1c1c1a;
+  --button-bg-white: #f5f5f5;
+
+  // Footer
+  --footer-background: #2e3584;
+  --footer-stroke: rgba(234, 236, 242, 0.5);
+  --footer-text-white: #f5f5f5;
+}
+
+:root [data-mode="dark"] {
+  // Logo
+  --logo-main: #eaecf2;
+  --logo-white: #eaecf2;
+
+  // Text
+  --text-main: #eaecf2;
+  --text-white: #1c1c1a;
+  --text-black-100: #eaecf2;
+  --text-black-40: #eaecf2;
+  --text-red-main: #f64222;
+  --text-red-small: #f64222;
+  --text-orange-light: #f64222;
+
+  // Header
+  --header-bg: rgba(11, 13, 39, 0.2);
+  --header-filters-bg: rgba(46, 53, 132, 0.5);
+  --header-filters-texte: rgba(234, 236, 242, 0.2);
+
+  //Background
+  --background-full-page: #0b0d27;
+  --background-section-contrast: #05061a;
+
+  //Stroke
+  --stroke-main: rgba(234, 236, 242, 0.5);
+  --stroke-black: rgba(234, 236, 242, 0.2);
+  --stroke-red: #f64222;
+  --stroke-white: #f5f5f5;
+
+  // Button
+  --button-bg-black: #eaecf2;
+  --button-bg-white: #eaecf2;
+
+  // Footer
+  --footer-background: #05061a;
+  --footer-stroke: rgba(234, 236, 242, 0.5);
+  --footer-text-white: #f5f5f5;
 }
