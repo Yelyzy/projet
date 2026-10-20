@@ -4,9 +4,9 @@
   justify-content: center;
   align-items: center;
   align-self: stretch;
-  border-top: 1px solid #1c1c1a;
-  border-bottom: 1px solid #1c1c1a;
-  background: #f0eedf;
+  border-top: 1px solid var(--stroke-black);
+  border-bottom: 1px solid var(--stroke-black);
+  background: var(--secondary-blue-20);
   width: 100%;
 }
 .nav-list {
@@ -23,13 +23,13 @@
   width: 100%;
   border: 0;
   background: none;
-  color: var(--color-text);
+  color: var(--text-black-100);
   text-align: center;
   cursor: pointer;
 }
 
 .main-nav .body-large:focus-visible {
-  outline: 0.125rem solid var(--color-thumb);
+  outline: 0.125rem solid var(--stroke-main);
   outline-offset: -0.125rem;
 }
 
@@ -47,8 +47,8 @@
   align-items: flex-start;
   gap: 0.5625rem;
   padding: 1.0625rem 1.5625rem;
-  border: 1px solid #000;
-  background: #f0eedf;
+  border: 1px solid var(--stroke-black);
+  background: var(--background-full-page);
   list-style: none;
 }
 
