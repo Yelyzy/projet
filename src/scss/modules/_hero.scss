@@ -27,22 +27,6 @@
   gap: var(--Spacing-S, 1.25rem);
 }
 
-.tags {
-  display: flex;
-  align-items: center;
-  gap: var(--Spacing-XS, 1rem);
-  align-self: stretch;
-}
-
-.tags a {
-  display: flex;
-  padding: 0.25rem var(--Spacing-XS, 1rem);
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  border: 1px solid var(--Primary-Blue-100, #3f4695);
-}
-
 h2 {
   color: var(--Primary-Blue-100, #3f4695);
 
