@@ -1,26 +1,29 @@
 .theme-switch {
   display: inline-block;
 
+  // Caché visuellement, mais toujours utilisable au clavier
   &__input {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
   }
 
   &__slider {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 
     width: 3.3125rem;
     height: 1.6875rem;
-
-    padding: 0.125rem 0.125rem 0.125rem 0;
+    padding: 0.125rem;
 
     border-radius: 1.875rem;
-
-    background: rgba(46, 53, 132, 0.5);
+    background: var(--switch-bg);
 
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease;
   }
 
   &__thumb {
@@ -32,7 +35,11 @@
     justify-content: center;
 
     border-radius: 50%;
-    background: #eaecf2;
+    background: var(--switch-thumb);
+
+    // Light : pouce à droite (largeur slider - pouce - padding = 1.625rem)
+    transform: translateX(1.625rem);
+    transition: transform 0.3s ease;
   }
 
   &__sun,
@@ -46,13 +53,9 @@
     display: none;
   }
 
-  /* DARK MODE */
-
-  &__input:checked + &__slider {
-    justify-content: flex-start;
-    padding: 0.125rem 0 0.125rem 0.125rem;
-
-    background: rgba(46, 53, 132, 0.1);
+  // ───── DARK (checkbox cochée) ─────
+  &__input:checked + &__slider &__thumb {
+    transform: translateX(0);
   }
 
   &__input:checked + &__slider &__sun {
@@ -61,5 +64,11 @@
 
   &__input:checked + &__slider &__moon {
     display: block;
+  }
+
+  // Focus clavier visible
+  &__input:focus-visible + &__slider {
+    outline: 2px solid var(--stroke-main);
+    outline-offset: 2px;
   }
 }
