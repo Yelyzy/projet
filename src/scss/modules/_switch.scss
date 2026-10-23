@@ -1,11 +1,11 @@
 .theme-switch {
   display: inline-block;
 
-  &__input {
+  &-input {
     display: none;
   }
 
-  &__slider {
+  &-slider {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -23,7 +23,7 @@
     transition: all 0.3s ease;
   }
 
-  &__thumb {
+  &-thumb {
     width: 1.4375rem;
     height: 1.4375rem;
 
@@ -35,31 +35,31 @@
     background: #eaecf2;
   }
 
-  &__sun,
-  &__moon {
+  &-sun,
+  &-moon {
     width: 14px;
     height: 14px;
     display: block;
   }
 
-  &__moon {
+  &-moon {
     display: none;
   }
 
   /* DARK MODE */
 
-  &__input:checked + &__slider {
+  &-input:checked + &-slider {
     justify-content: flex-start;
     padding: 0.125rem 0 0.125rem 0.125rem;
 
     background: rgba(46, 53, 132, 0.1);
   }
 
-  &__input:checked + &__slider &__sun {
+  &-input:checked + &-slider &-sun {
     display: none;
   }
 
-  &__input:checked + &__slider &__moon {
+  &-input:checked + &-slider &-moon {
     display: block;
   }
 }

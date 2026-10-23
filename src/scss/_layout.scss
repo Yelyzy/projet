@@ -1,0 +1,65 @@
+:root {
+  --grid-columns: 12;
+  --grid-gutter: clamp(1rem, 2.3vw, 2rem);
+  --grid-margin: clamp(1.25rem, 5.6vw, 5rem);
+  --grid-row-gap: var(--grid-gutter);
+
+  /* Spacing scale */
+  --space-xs: 1rem;
+  --space-s: 1.25rem;
+  --space-m: 2rem;
+  --space-l: 3rem;
+  --space-xl: 4rem;
+  --space-xxl: 5rem;
+  --space-3xl: 6.25rem;
+  --space-4xl: 7.5rem;
+
+  --color-bg: #ebebf2;
+  --color-text: #2e2a6e;
+  --color-accent: #e4502b;
+}
+
+.site-header,
+.hero {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+}
+
+.hero {
+  row-gap: var(--grid-row-gap);
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+}
+
+@media (max-width: 63.9375rem) {
+  :root {
+    --grid-columns: 8;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  :root {
+    --space-xs: 0.75rem;
+    --space-s: 1rem;
+    --space-m: 1.5rem;
+    --space-l: 2rem;
+    --space-xl: 3rem;
+    --space-xxl: 4rem;
+    --space-3xl: 5rem;
+    --space-4xl: 6.25rem;
+  }
+}
+
+@media (max-width: 37.4375rem) {
+  :root {
+    --grid-columns: 4;
+  }
+}
