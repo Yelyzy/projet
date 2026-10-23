@@ -48,7 +48,7 @@
   &__input:checked + &__slider {
     justify-content: flex-start;
     padding: 0.125rem 0 0.125rem 0.125rem;
-    background: rgba(46, 53, 132, 0.1);
+    background: var(--switch-bg);
   }
 
   &__input:checked + &__slider &__thumb {

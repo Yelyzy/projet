@@ -19,12 +19,6 @@
   border: 1px solid var(--stroke-main);
   color: var(--text-main);
 
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: var(--body-large-semibold-large, 1.25rem);
-  font-weight: 300;
-  line-height: 130%;
-  text-decoration: none;
-
   transition: opacity 0.3s ease;
 
   &:hover {
