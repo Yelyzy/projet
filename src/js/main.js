@@ -3,6 +3,8 @@ navItems.forEach((navitem) => {
   const dropdown = navitem.querySelector(".dropdown-menu");
   const navButton = navitem.querySelector(".body-large");
 
+  if (!dropdown || !navButton) return;
+
   navButton.addEventListener("click", () => {
     const dropdowns = document.querySelectorAll(".dropdown-menu");
     dropdowns.forEach((down) => {
@@ -15,24 +17,18 @@ navItems.forEach((navitem) => {
   });
 });
 
-// Si nous avons le temps, nous ajoutons des transitions
-
-<<<<<<< HEAD
-// switch
-const switchInput = document.querySelector(".theme-switch-input");
-=======
-// ───────────── SWITCH DARK MODE ─────────────
 const switchInput = document.querySelector(".theme-switch__input");
 if (switchInput) {
   const root = document.documentElement;
->>>>>>> e5e0a54231f3afd379b6d0340189886e536647b5
+  const savedMode = localStorage.getItem("mode");
+  const mode = savedMode === "dark" ? "dark" : "light";
 
-  // Synchronise le switch avec le mode actuel
-  switchInput.checked = root.dataset.mode === "dark";
+  root.dataset.mode = mode;
+  switchInput.checked = mode === "dark";
 
   switchInput.addEventListener("change", () => {
-    const mode = switchInput.checked ? "dark" : "light";
-    root.dataset.mode = mode;
-    localStorage.setItem("mode", mode);
+    const selectedMode = switchInput.checked ? "dark" : "light";
+    root.dataset.mode = selectedMode;
+    localStorage.setItem("mode", selectedMode);
   });
 }

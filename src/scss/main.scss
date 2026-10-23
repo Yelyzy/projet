@@ -40,6 +40,8 @@
 :root,
 :root[data-mode="light"] {
   color-scheme: light;
+  --color-bg: var(--secondary-blue-100);
+  --color-text: var(--primary-blue-100);
 
   // Logo
   --logo-main: var(--primary-blue-100);
@@ -92,6 +94,8 @@
 // TOKENS DARK
 :root[data-mode="dark"] {
   color-scheme: dark;
+  --color-bg: var(--night-blue-100);
+  --color-text: var(--secondary-blue-100);
 
   // Logo
   --logo-main: var(--secondary-blue-100);

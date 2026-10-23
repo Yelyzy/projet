@@ -1,11 +1,6 @@
 .theme-switch {
   display: inline-block;
 
-<<<<<<< HEAD
-  &-input {
-    display: none;
-=======
-  // Caché visuellement, mais toujours utilisable au clavier
   &__input {
     position: absolute;
     width: 1px;
@@ -13,75 +8,61 @@
     opacity: 0;
     overflow: hidden;
     clip-path: inset(50%);
->>>>>>> e5e0a54231f3afd379b6d0340189886e536647b5
   }
 
-  &-slider {
+  &__slider {
     display: flex;
     align-items: center;
-
     width: 3.3125rem;
     height: 1.6875rem;
     padding: 0.125rem;
-
     border-radius: 1.875rem;
     background: var(--switch-bg);
-
     cursor: pointer;
     transition: background 0.3s ease;
   }
 
-  &-thumb {
-    width: 1.4375rem;
-    height: 1.4375rem;
-
+  &__thumb {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    width: 1.4375rem;
+    height: 1.4375rem;
     border-radius: 50%;
     background: var(--switch-thumb);
-
-    // Light : pouce à droite (largeur slider - pouce - padding = 1.625rem)
     transform: translateX(1.625rem);
     transition: transform 0.3s ease;
   }
 
-  &-sun,
-  &-moon {
+  &__sun,
+  &__moon {
+    display: block;
     width: 14px;
     height: 14px;
-    display: block;
   }
 
-  &-moon {
+  &__moon {
     display: none;
   }
 
-<<<<<<< HEAD
-  /* DARK MODE */
-
-  &-input:checked + &-slider {
+  &__input:checked + &__slider {
     justify-content: flex-start;
     padding: 0.125rem 0 0.125rem 0.125rem;
-
     background: rgba(46, 53, 132, 0.1);
-=======
-  // ───── DARK (checkbox cochée) ─────
-  &__input:checked + &__slider &__thumb {
-    transform: translateX(0);
->>>>>>> e5e0a54231f3afd379b6d0340189886e536647b5
   }
 
-  &-input:checked + &-slider &-sun {
+  &__input:checked + &__slider &__thumb {
+    transform: translateX(0);
+  }
+
+  &__input:checked + &__slider &__sun {
     display: none;
   }
 
-  &-input:checked + &-slider &-moon {
+  &__input:checked + &__slider &__moon {
     display: block;
   }
 
-  // Focus clavier visible
   &__input:focus-visible + &__slider {
     outline: 2px solid var(--stroke-main);
     outline-offset: 2px;

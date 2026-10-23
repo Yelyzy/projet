@@ -1,15 +1,10 @@
 .site-header {
   min-height: 4.5rem;
   align-items: center;
-<<<<<<< HEAD
-  padding-block: 1rem;
-=======
   align-self: stretch;
-  border-top: 1px solid var(--stroke-black);
-  border-bottom: 1px solid var(--stroke-black);
-  background: var(--secondary-blue-20);
+  padding-block: 1rem;
+  background: var(--header-bg);
   width: 100%;
->>>>>>> e5e0a54231f3afd379b6d0340189886e536647b5
 }
 
 .header-toggle {
@@ -36,7 +31,7 @@
   padding: 0.625rem 1.125rem;
   border: 0;
   border-radius: 999px;
-  background: rgb(46 42 110 / 12%);
+  background: var(--header-filters-bg);
 }
 
 .main-nav {
@@ -83,16 +78,10 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5625rem;
-<<<<<<< HEAD
   margin-top: 0.87rem;
   padding: 1.0625rem 1rem;
   border: 1px solid currentColor;
-  background: var(--color-bg);
-=======
-  padding: 1.0625rem 1.5625rem;
-  border: 1px solid var(--stroke-black);
   background: var(--background-full-page);
->>>>>>> e5e0a54231f3afd379b6d0340189886e536647b5
   list-style: none;
 }
 
