@@ -65,6 +65,7 @@
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 .hero-text {
   grid-column: 8 / span 4;
   grid-row: 2;
@@ -78,6 +79,19 @@
 
 .hero-text .byline {
   margin: 0 0 clamp(1rem, 2vw, 1.75rem);
+=======
+h2 {
+  color: var(--Primary-Blue-100, #3f4695);
+
+  /* h2/extrabold */
+  font-family: "Akke Variable TRIAL";
+  font-size: var(--h2, 2rem);
+  font-style: normal;
+  font-weight: 800;
+  line-height: 110%; /* 2.2rem */
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+>>>>>>> e5e0a54231f3afd379b6d0340189886e536647b5
 }
 
 .hero-text .lead {

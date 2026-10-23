@@ -20,12 +20,10 @@
 /* Subscribe */
 
 .btn--subscribe {
-  padding: 1rem 4rem;
+  padding: 0.75rem 2rem;
 
-  /* changer la clases de couleurs  */
-
-  background: var(--Button-bg-black, #1c1c1a);
-  color: var(--Texte-white, #f5f5f5);
+  background: var(--button-bg-black);
+  color: var(--text-white);
 
   /* ajouter les vrai variables typo :D  */
 
@@ -39,8 +37,8 @@
 /* Read More */
 
 .btn--read-more {
-  background: var(--Primary-Blue-100, #2e3584);
-  color: var(--Texte-white, #f5f5f5);
+  background: var(--button-bg-blue);
+  color: var(--button-text-blue);
 
   font-size: var(--body-large-semibold-large, 1.25rem);
   font-weight: 300;

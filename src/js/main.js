@@ -17,9 +17,22 @@ navItems.forEach((navitem) => {
 
 // Si nous avons le temps, nous ajoutons des transitions
 
+<<<<<<< HEAD
 // switch
 const switchInput = document.querySelector(".theme-switch-input");
+=======
+// ───────────── SWITCH DARK MODE ─────────────
+const switchInput = document.querySelector(".theme-switch__input");
+if (switchInput) {
+  const root = document.documentElement;
+>>>>>>> e5e0a54231f3afd379b6d0340189886e536647b5
 
-switchInput.addEventListener("change", () => {
-  document.body.classList.toggle("dark-mode");
-});
+  // Synchronise le switch avec le mode actuel
+  switchInput.checked = root.dataset.mode === "dark";
+
+  switchInput.addEventListener("change", () => {
+    const mode = switchInput.checked ? "dark" : "light";
+    root.dataset.mode = mode;
+    localStorage.setItem("mode", mode);
+  });
+}
