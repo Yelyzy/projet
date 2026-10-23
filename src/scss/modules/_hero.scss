@@ -81,11 +81,12 @@
 }
 
 .hero-text .lead {
-  max-height: 7.75rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
   margin: 0 0 1rem;
   overflow: hidden;
   color: var(--color-text);
-  text-overflow: ellipsis;
 }
 
 .hero-text .btn {

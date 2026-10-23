@@ -12,6 +12,9 @@
 }
 
 .header-logo {
+  color: var(--logo-main);
+  line-height: 0;
+  width: 7.4375rem;
   grid-column: 5 / span 4;
   justify-self: center;
 }
