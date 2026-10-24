@@ -1,0 +1,72 @@
+.faq {
+  row-gap: clamp(24px, 3vw, 45px);
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.faq-title {
+  grid-column: 3 / span 4;
+  margin: 0;
+  color: var(--texte-main-blue);
+}
+.faq-title .accent {
+  color: var(--text-red-small);
+}
+
+.faq-title .accent::before {
+  content: "\A";
+  white-space: pre;
+}
+
+.faq-intro {
+  display: flex;
+  flex-direction: column;
+  grid-column: 5 / span 5;
+  color: var(--texte-main-blue);
+  gap: 0.5rem;
+}
+.faq-intro h3 {
+  margin: 0;
+}
+.faq-intro p {
+  margin: 0;
+}
+
+/* Две колонки вопросов, по 5 колонок сетки каждая */
+.faq-col {
+  align-self: start;
+  margin-top: 5rem;
+  border-bottom: 0.5px solid var(--Stroke-main, #2e3584);
+}
+.faq-col-left {
+  grid-column: 2 / span 5;
+}
+.faq-col-right {
+  grid-column: 7 / span 5;
+}
+
+/* Tablet: колонки рядом, по 4 из 8 */
+@media (max-width: 1023px) {
+  .faq-title,
+  .faq-intro {
+    grid-column: 1 / -1;
+  }
+  .faq-col-left {
+    grid-column: 1 / span 4;
+  }
+  .faq-col-right {
+    grid-column: 5 / -1;
+  }
+}
+
+/* Mobile: всё в столбик */
+@media (max-width: 599px) {
+  .faq-col-left,
+  .faq-col-right {
+    grid-column: 1 / -1;
+  }
+  .faq-col-right {
+    margin-top: 0;
+    border-top: 0;
+  }
+}
