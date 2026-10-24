@@ -32,3 +32,22 @@ if (switchInput) {
     localStorage.setItem("mode", selectedMode);
   });
 }
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+if (reduceMotion.matches) {
+  document.querySelectorAll(".reel-video").forEach((video) => {
+    video.pause();
+    video.removeAttribute("autoplay");
+  });
+}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(({ target, isIntersecting }) => {
+    if (reduceMotion.matches) return;
+    isIntersecting ? target.play().catch(() => {}) : target.pause();
+  });
+});
+
+document
+  .querySelectorAll(".reel-video")
+  .forEach((video) => observer.observe(video));

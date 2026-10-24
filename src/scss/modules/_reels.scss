@@ -1,0 +1,144 @@
+.reels {
+  margin-top: var(--space-4xl);
+  margin-bottom: var(--space-4xl);
+}
+
+.reels-inner {
+  margin-left: var(--grid-margin); // рамка начинается с колонки 1
+  padding: 2.5rem;
+  border: 1px solid var(--stroke-red);
+  border-right: 0;
+}
+
+.reels .title-small {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.reels-carousel {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--grid-gutter);
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reels .h4-regular {
+  grid-column: 1 / -1;
+  margin: 2rem 0 0; // 32px от карточек
+  text-align: center;
+  text-transform: uppercase;
+}
+
+// ---------- Cards reels ----------
+.reel {
+  position: relative;
+  isolation: isolate; // наложение действует только внутри карточки
+  aspect-ratio: 296 / 549;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--reel-tint, transparent);
+    mix-blend-mode: var(--reel-blend, color);
+    opacity: var(--reel-opacity, 1);
+    pointer-events: none;
+  }
+}
+
+.video-reel {
+  filter: grayscale(1);
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// ---------- filtres ----------
+.reel-blue {
+  --reel-tint: #2e3584;
+  --reel-blend: color;
+}
+
+.reel-red {
+  --reel-tint: #f64222;
+  --reel-blend: color;
+  --reel-opacity: 0.85;
+}
+
+.reel-black {
+  --reel-tint: #1c1c1a;
+  --reel-blend: soft-light;
+}
+
+.reel-duration {
+  position: absolute;
+  right: 0;
+  bottom: 1.5rem;
+  z-index: 1;
+  box-sizing: border-box;
+  min-width: 7.75rem;
+  padding: 0.3125rem 2.5rem;
+  border: 1px solid var(--stroke-white);
+  border-right: 0;
+  background-color: var(--text-black-40);
+  mix-blend-mode: luminosity;
+  color: var(--text-white);
+  text-align: center;
+}
+
+// ==========================================================
+// Tablette: 2 colonnes
+// ==========================================================
+@media (max-width: 63.9375rem) {
+  .reels-carousel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+// ==========================================================
+// Mobile
+// ==========================================================
+@media (max-width: 37.4375rem) {
+  .reels-inner {
+    margin-left: 0;
+    padding: 1.5rem 0 2.5rem;
+    border: 0;
+  }
+
+  .reels .title-small,
+  .reels .h4-regular {
+    padding-inline: var(--grid-margin);
+    text-align: center;
+  }
+
+  .reels .h4-regular {
+    margin-top: 1.5rem;
+  }
+
+  .reels-carousel {
+    display: flex;
+    gap: 0.75rem; // 12px
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .reel {
+    flex: 0 0 calc((100% - 2 * 0.75rem) / 3);
+    aspect-ratio: 125 / 313;
+    scroll-snap-align: start;
+  }
+
+  .reel-duration {
+    bottom: 0.625rem;
+    min-width: 55%;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
