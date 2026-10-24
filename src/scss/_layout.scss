@@ -22,7 +22,8 @@
 .site-header,
 .hero,
 .newsletter-body,
-.footer-main {
+.footer-main,
+.faq {
   display: grid;
   grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
   column-gap: var(--grid-gutter);

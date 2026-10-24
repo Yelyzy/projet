@@ -1,3 +1,19 @@
+document.querySelectorAll(".acc-item").forEach((item, index) => {
+  const button = item.querySelector("button");
+  const panel = item.querySelector(".acc-panel");
+
+  const setOpen = (open) => {
+    item.classList.toggle("is-open", open);
+    button.setAttribute("aria-expanded", open);
+    panel.inert = !open;
+  };
+
+  setOpen(index === 0 || item.classList.contains("is-open"));
+  button.addEventListener("click", () => {
+    setOpen(!item.classList.contains("is-open"));
+  });
+});
+
 const navItems = document.querySelectorAll(".nav-item");
 navItems.forEach((navitem) => {
   const dropdown = navitem.querySelector(".dropdown-menu");
