@@ -67,3 +67,61 @@ const observer = new IntersectionObserver((entries) => {
 document
   .querySelectorAll(".reel-video")
   .forEach((video) => observer.observe(video));
+
+// ==========================================================
+// Article card
+// ==========================================================
+
+// Сколько строк текста помещается в открытой карточке: 3, как в макете, или 2
+const fitExcerpt = (card) => {
+  const panel = card.querySelector(".article-card-open");
+  const content = card.querySelector(".article-card-content");
+  const text = content.querySelector(":scope > .body-regular");
+  if (panel.hidden || !text) return;
+
+  for (let lines = 3; lines >= 2; lines--) {
+    text.style.webkitLineClamp = lines;
+    if (content.scrollHeight <= content.clientHeight) break; // помещается
+  }
+};
+
+// Открыть или закрыть карточку
+const setOpen = (card, isOpen) => {
+  card.classList.toggle("is-open", isOpen);
+  card
+    .querySelector(":scope > button")
+    .setAttribute("aria-expanded", String(isOpen));
+  card.querySelector(".article-card-open").hidden = !isOpen;
+  if (isOpen) fitExcerpt(card);
+};
+
+// Пересчитывать строки, когда меняется ширина карточки
+const resizeObserver = new ResizeObserver((entries) => {
+  entries.forEach((entry) => fitExcerpt(entry.target.closest(".article-card")));
+});
+
+document.querySelectorAll(".article-card").forEach((card, index) => {
+  const toggle = card.querySelector(":scope > button");
+  const panel = card.querySelector(".article-card-open");
+
+  // свой id для каждой карточки, чтобы aria-controls вёл на неё
+  const id = `article-${index + 1}`;
+  panel.id = id;
+  toggle.setAttribute("aria-controls", id);
+
+  resizeObserver.observe(card.querySelector(".article-card-content"));
+
+  toggle.addEventListener("click", () => {
+    // в рубрике открыта только одна карточка: закрыть остальные
+    card.parentElement.querySelectorAll(".article-card").forEach((other) => {
+      if (other !== card) setOpen(other, false);
+    });
+
+    setOpen(card, true);
+
+    // фокус переходит на заголовок раскрытой карточки
+    const title = panel.querySelector("h4");
+    title.setAttribute("tabindex", "-1");
+    title.focus();
+  });
+});

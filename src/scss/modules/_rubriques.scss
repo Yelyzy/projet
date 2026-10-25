@@ -1,0 +1,40 @@
+.rubrique {
+  padding-inline: var(--grid-margin);
+  position: relative;
+  isolation: isolate;
+  row-gap: var(--space-xs); // 16px
+  padding-block: var(--space-l); // 48px
+  color: var(--text-white);
+
+  // синий фон на 40px шире сетки с каждой стороны
+  &::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline: max(0px, calc(var(--grid-margin) - 2.5rem));
+    z-index: -1;
+    background: var(--background-section-contrast);
+  }
+}
+
+#rubrique-city {
+  color: var(--text-orange-light);
+}
+
+.rubrique-title {
+  padding: var(--space-l) 0 var(--space-l) 0;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.button-small {
+  display: inline-flex;
+  padding: 0.25rem 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-blue-100);
+  color: var(--primary-blue-100);
+}
