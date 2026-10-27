@@ -1,7 +1,7 @@
 :root {
   --grid-columns: 12;
   --grid-gutter: clamp(1rem, 2.3vw, 2rem);
-  --grid-margin: clamp(1.25rem, 5.6vw, 5rem);
+  --grid-margin: 5rem;
   --grid-row-gap: var(--grid-gutter);
 
   /* Spacing scale */
@@ -47,6 +47,7 @@ body {
 @media (max-width: 63.9375rem) {
   :root {
     --grid-columns: 8;
+    --grid-margin: 2.5rem;
   }
 }
 
@@ -69,6 +70,6 @@ body {
   :root {
     --grid-columns: 6;
     --grid-gutter: clamp(0.5rem, 2.985vw, 0.875rem); // 12px на 402
-    --grid-margin: clamp(1rem, 4.975vw, 1.875rem); // 20px на 402
+    --grid-margin: 1.25rem;
   }
 }

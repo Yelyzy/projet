@@ -46,9 +46,8 @@
 .nav-list {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  max-width: 90rem;
   margin-inline: auto;
-  padding: 0.875rem calc(var(--grid-margin) / 2);
+  padding: 0.875rem var(--grid-margin);
   text-align: center;
   list-style: none;
 }

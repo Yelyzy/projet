@@ -1,5 +1,5 @@
 .article-hero {
-  --hero-padding: clamp(1rem, 5vw, 3.25rem);
+  --hero-padding: var(--grid-margin);
 
   display: flex;
   flex-direction: column;
