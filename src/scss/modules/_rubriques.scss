@@ -37,3 +37,29 @@
   background-color: var(--secondary-blue-100);
   color: var(--primary-blue-100);
 }
+
+@media (max-width: 37.4375rem) {
+  .rubrique {
+    row-gap: 1.25rem;
+  }
+
+  .rubrique__title {
+    grid-column: 1 / -1;
+  }
+
+  .rubrique > .article-card:first-of-type,
+  .rubrique > .article-card:first-of-type.is-open {
+    grid-row: 2;
+  }
+
+  .rubrique {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem; // 20px между заголовком и карточками
+  }
+
+  .rubrique-title {
+    padding: 0;
+    position: static;
+  }
+}

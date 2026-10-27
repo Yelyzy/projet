@@ -62,6 +62,7 @@
     z-index: 4;
     align-self: start;
     text-transform: uppercase;
+    color: var(--logo-white);
   }
 
   // дата
@@ -141,6 +142,7 @@
     overflow: hidden;
     padding-top: 0.3em; // место для верха буквицы
     margin: -0.3em 0 0;
+    color: var(--logo-white);
   }
 
   > .button-small {
@@ -177,6 +179,7 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-transform: uppercase;
+    color: var(--logo-white);
   }
 }
 
@@ -189,4 +192,71 @@
   object-fit: cover;
   object-position: bottom;
   mix-blend-mode: plus-lighter;
+}
+.article-card-header .body-small {
+  color: var(--logo-white);
+}
+
+// ==========================================================
+// Tablette: 8 colonnes
+// ==========================================================
+@media (max-width: 63.9375rem) {
+  .article-card-toggle {
+    grid-column: 5 / -1; // правая половина
+  }
+
+  .article-card-content {
+    grid-column: 1 / 5;
+    padding-left: 0;
+  }
+
+  .article-card-header {
+    align-self: stretch;
+    width: auto;
+  }
+
+  .article-card-img {
+    grid-column: 5 / -1;
+  }
+}
+
+// ==========================================================
+// Mobile: 6 colonnes
+// ==========================================================
+@media (max-width: 37.4375rem) {
+  // ---------- Закрытая: на всю ширину ----------
+  .article-card-toggle {
+    grid-column: 1 / -1;
+    height: auto;
+    aspect-ratio: 361 / 171; // пропорции из мобильного макета
+  }
+
+  // ---------- Открытая: картинка сверху, текст снизу ----------
+  .article-card-open {
+    height: auto; // высота по содержимому, а не 200px
+    row-gap: 1.5rem; // 24px от картинки до заголовка
+  }
+
+  .article-card-img {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    height: auto;
+    aspect-ratio: 361 / 171;
+  }
+
+  .article-card-content {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-start;
+    gap: 0.875rem; // 14px
+    overflow: visible; // на мобильном ничего не обрезаем по высоте
+
+    > .body-regular {
+      -webkit-line-clamp: 3; // 3 строки, как в макете
+    }
+
+    > .button-small {
+      margin-top: 0;
+    }
+  }
 }
