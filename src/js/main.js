@@ -1,18 +1,32 @@
-document.querySelectorAll(".acc-item").forEach((item, index) => {
-  const button = item.querySelector("button");
-  const panel = item.querySelector(".acc-panel");
+// ==========================================================
+// Accordion (FAQ)
+// ==========================================================
+const accItems = document.querySelectorAll(".acc-item");
 
-  const setOpen = (open) => {
-    item.classList.toggle("is-open", open);
-    button.setAttribute("aria-expanded", open);
-    panel.inert = !open;
-  };
+const setAccOpen = (item, open) => {
+  item.classList.toggle("is-open", open);
+  item.querySelector("button").setAttribute("aria-expanded", String(open));
+  item.querySelector(".acc-panel").inert = !open;
+};
 
-  setOpen(index === 0 || item.classList.contains("is-open"));
-  button.addEventListener("click", () => {
-    setOpen(!item.classList.contains("is-open"));
+accItems.forEach((item) => {
+  item.querySelector("button").addEventListener("click", () => {
+    const willOpen = !item.classList.contains("is-open");
+
+    // fermer tous les autres questions
+    accItems.forEach((other) => {
+      if (other !== item) setAccOpen(other, false);
+    });
+
+    setAccOpen(item, willOpen);
   });
 });
+
+// Lors du chargement, une seule question est ouverte : celle marquée « is-open » ; s'il n'y en a pas, c'est la première.
+const initiallyOpen =
+  document.querySelector(".acc-item.is-open") || accItems[0];
+
+accItems.forEach((item) => setAccOpen(item, item === initiallyOpen));
 
 const navItems = document.querySelectorAll(".nav-item");
 navItems.forEach((navitem) => {
@@ -72,10 +86,9 @@ document
 // Article card
 // ==========================================================
 
-// Десктоп и планшет: от 600px. На мобильном карточки не переставляются.
+// Desktop et tablette
 const isWide = window.matchMedia("(min-width: 37.5rem)");
 
-// Сколько строк текста помещается в открытой карточке: 3 или 2
 const fitExcerpt = (card) => {
   const panel = card.querySelector(".article-card-open");
   const content = card.querySelector(".article-card-content");
@@ -88,7 +101,6 @@ const fitExcerpt = (card) => {
   }
 };
 
-// Открыть или закрыть карточку
 const setOpen = (card, isOpen) => {
   card.classList.toggle("is-open", isOpen);
   card
@@ -98,21 +110,17 @@ const setOpen = (card, isOpen) => {
   if (isOpen) fitExcerpt(card);
 };
 
-// Переставить карточки по кругу, чтобы выбранная оказалась второй (в центре)
 const moveToMiddle = (card) => {
   const section = card.parentElement;
   const cards = [...section.querySelectorAll(":scope > .article-card")];
   if (cards.length < 3) return;
 
-  // запоминаем, где карточки стоят сейчас
   const before = new Map(cards.map((c) => [c, c.getBoundingClientRect().top]));
 
-  // новый порядок: выбранная карточка на втором месте, остальные по кругу
   const shift = (cards.indexOf(card) - 1 + cards.length) % cards.length;
   const rotated = [...cards.slice(shift), ...cards.slice(0, shift)];
   rotated.forEach((c) => section.append(c));
 
-  // плавно довозим каждую карточку со старого места на новое
   if (reduceMotion.matches) return;
   rotated.forEach((c) => {
     const dy = before.get(c) - c.getBoundingClientRect().top;
@@ -124,7 +132,6 @@ const moveToMiddle = (card) => {
   });
 };
 
-// Пересчитывать строки, когда меняется ширина карточки
 const resizeObserver = new ResizeObserver((entries) => {
   entries.forEach((entry) => fitExcerpt(entry.target.closest(".article-card")));
 });
@@ -140,14 +147,12 @@ document.querySelectorAll(".article-card").forEach((card, index) => {
   resizeObserver.observe(card.querySelector(".article-card-content"));
 
   toggle.addEventListener("click", () => {
-    // в рубрике открыта только одна карточка
     card.parentElement.querySelectorAll(".article-card").forEach((other) => {
       if (other !== card) setOpen(other, false);
     });
 
     setOpen(card, true);
 
-    // десктоп и планшет: открытая карточка встаёт в центр стопки
     if (isWide.matches) moveToMiddle(card);
 
     const title = panel.querySelector("h4");

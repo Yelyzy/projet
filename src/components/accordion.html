@@ -1,12 +1,16 @@
 <div class="acc-item">
-  <button class="h4-extrabold" aria-expanded="false" aria-controls="acc-panel-1">
-    <span>Question text</span>
+  <button
+    class="h4-extrabold"
+    aria-expanded="false"
+    aria-controls="acc-panel-1"
+  >
+    <span>{{ question }}</span>
     <span class="acc-icon" aria-hidden="true"></span>
   </button>
 
   <div class="acc-panel" id="acc-panel-1" inert>
     <div class="acc-content">
-      <p class="acc-answer body-large">Answer text</p>
+      <p class="acc-answer body-large">{{ answer }}</p>
     </div>
   </div>
 </div>

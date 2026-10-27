@@ -3,11 +3,14 @@
   flex-direction: column;
   width: 100%;
   padding: 1.5rem 0;
-  border-top: 0.5px solid var(--Stroke-main, #2e3584);
-  transition: gap 0.3s;
+  border-top: 0.5px solid var(--stroke-main);
+  transition:
+    gap 0.3s,
+    border-color 0.2s;
 }
 .acc-item.is-open {
   gap: 0.75rem;
+  border-top-color: var(--stroke-red);
 }
 
 :where(.acc-item) > button {
@@ -67,4 +70,13 @@
 }
 .acc-answer {
   margin: 0;
+  color: var(--text-black-100);
+}
+
+.acc-item.is-open > button {
+  color: var(--text-red-small);
+}
+
+.acc-item > button {
+  transition: color 0.2s;
 }
