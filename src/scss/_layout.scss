@@ -76,4 +76,8 @@ section + section {
     --grid-gutter: clamp(0.5rem, 2.985vw, 0.875rem); // 12px на 402
     --grid-margin: 1.25rem;
   }
+
+  section + section {
+    margin-top: var(--space-l);
+  }
 }

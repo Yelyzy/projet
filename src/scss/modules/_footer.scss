@@ -1,9 +1,9 @@
 footer {
-  margin-top: var(--space-xxl);
   background-color: var(--footer-background);
 }
 
 .footer-main {
+  margin-top: var(--space-xxl);
   row-gap: var(--space-xl);
   padding-block: clamp(var(--space-l), 6.25vw, 5.625rem);
 }
@@ -67,6 +67,7 @@ a {
 // mobile
 @media (max-width: 37.4375rem) {
   .footer-main {
+    margin-top: var(--space-l);
     row-gap: var(--space-xl); // 48px
     padding-block: 2.5rem 1.25rem; // 40px сверху, 20px снизу
   }

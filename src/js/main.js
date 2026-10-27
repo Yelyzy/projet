@@ -211,3 +211,11 @@ document.querySelectorAll(".article-card").forEach((card, index) => {
     title.focus({ preventScroll: true });
   });
 });
+
+// При загрузке (десктоп и планшет) открыта средняя карточка
+if (isWide.matches) {
+  document.querySelectorAll(".rubrique").forEach((section) => {
+    const cards = section.querySelectorAll(":scope > .article-card");
+    if (cards.length >= 3) setOpen(cards[1], true);
+  });
+}

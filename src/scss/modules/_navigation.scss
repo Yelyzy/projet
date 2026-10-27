@@ -151,3 +151,10 @@
     grid-column: 7 / -1;
   }
 }
+
+@media (max-width: 37.4375rem) {
+  .site-header {
+    margin-bottom: var(--space-l);
+    background-color: var(--background-full-page);
+  }
+}
