@@ -39,6 +39,7 @@
 
 .main-nav {
   width: 100%;
+  color: var(--text-black-100);
   border-block: 1px solid currentColor;
 }
 
@@ -63,7 +64,7 @@
 }
 
 .main-nav .body-large:focus-visible {
-  outline: 0.125rem solid var(--stroke-main);
+  outline: 0.125rem solid var(--stroke-black);
   outline-offset: -0.125rem;
 }
 

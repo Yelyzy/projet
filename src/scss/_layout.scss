@@ -28,7 +28,7 @@
   display: grid;
   grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
   column-gap: var(--grid-gutter);
-  max-width: 90rem;
+  padding-inline: var(--grid-margin);
   margin-inline: auto;
 }
 
@@ -43,12 +43,14 @@ body {
   margin-top: clamp(2.5rem, 6vw, 5rem);
 }
 
+// Tablette (jusqu'à 1023px)
 @media (max-width: 63.9375rem) {
   :root {
     --grid-columns: 8;
   }
 }
 
+// Écrans jusqu'à 767px
 @media (max-width: 47.9375rem) {
   :root {
     --space-xs: 0.75rem;
@@ -62,6 +64,7 @@ body {
   }
 }
 
+// Mobile (jusqu'à 599px)
 @media (max-width: 37.4375rem) {
   :root {
     --grid-columns: 6;
