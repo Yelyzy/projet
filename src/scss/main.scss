@@ -19,6 +19,9 @@
 @import "modules/city-motion";
 @import "modules/past-present";
 @import "modules/newsletter-simple";
+@import "modules/card-small";
+@import "modules/related-articles";
+
 :root {
   // Accent
   --accent-red-small-50: rgba(211, 29, 9, 0.5);
@@ -100,6 +103,9 @@
   --footer-background: var(--primary-blue-100);
   --footer-stroke: var(--secondary-blue-50);
   --footer-text-white: var(--neutral-white-100);
+
+  --card-accent: var(--accent-orange-light-100);
+  --card-ink: var(--primary-blue-100);
 }
 
 // TOKENS DARK

@@ -1,0 +1,125 @@
+@mixin card-small-open {
+  &::after {
+    opacity: 0;
+  }
+
+  .card-small__title {
+    max-height: 6rem;
+    opacity: 1;
+  }
+
+  .card-small__category {
+    background: var(--card-ink);
+    color: var(--card-accent);
+  }
+
+  .card-small__foot {
+    background: var(--card-ink);
+  }
+
+  .card-small__cta {
+    opacity: 1;
+    color: var(--footer-text-white);
+  }
+}
+
+.card-small {
+  position: relative;
+  display: block;
+  isolation: isolate;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  text-decoration: none;
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Filtro azul por defecto
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--primary-blue-100);
+    mix-blend-mode: color;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  // ───── Arriba a la izquierda ─────
+  &__head {
+    position: absolute;
+    top: var(--space-xs);
+    left: var(--space-xs);
+    right: var(--space-xs);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__title,
+  &__category {
+    margin: 0;
+    padding: 0 0.25rem;
+    background: var(--card-accent);
+    color: var(--card-ink);
+  }
+
+  // Título: presente en el HTML pero oculto hasta el hover
+  &__title {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      max-height 0.3s ease;
+  }
+
+  // ───── Abajo a la derecha ─────
+  &__foot {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0.25rem 0.5rem;
+    background: transparent;
+    transition: background 0.3s ease;
+  }
+
+  &__cta {
+    color: var(--card-ink);
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      color 0.3s ease;
+  }
+
+  &__date {
+    color: var(--card-accent);
+  }
+
+  // Teclado: funciona en cualquier dispositivo
+  &:focus-visible {
+    @include card-small-open;
+  }
+
+  // Ratón: solo en dispositivos con hover
+  @media (hover: hover) {
+    &:hover {
+      @include card-small-open;
+    }
+  }
+
+  // Móvil (menos de 600px) y pantallas táctiles: siempre abierta
+  @media (max-width: 37.4375rem), (hover: none) {
+    @include card-small-open;
+  }
+}
