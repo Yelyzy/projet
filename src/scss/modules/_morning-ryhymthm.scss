@@ -1,0 +1,75 @@
+.morning-rhythm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  margin-top: var(--space-4xl);
+  padding-inline: var(--grid-margin);
+
+  &__title {
+    color: var(--text-main);
+  }
+
+  &__media {
+    min-width: 0;
+    margin: 0;
+
+    &--large {
+      aspect-ratio: 21 / 20;
+    }
+
+    &--small {
+      aspect-ratio: 25 / 16;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__text {
+    min-width: 0;
+    color: var(--text-main);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // ───── Desktop (1200px et plus) ─────
+  @media (min-width: 75rem) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gutter);
+    row-gap: var(--space-m);
+    align-items: end;
+
+    &__title {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+
+    &__quote {
+      grid-column: 1 / 6;
+      grid-row: 2;
+      align-self: start;
+    }
+
+    &__media--large {
+      grid-column: 1 / 6; // 5 colonnes
+      grid-row: 3;
+    }
+
+    &__text {
+      grid-column: 6 / 10; // 4 colonnes
+      grid-row: 3;
+    }
+
+    &__media--small {
+      grid-column: 10 / 13; // 3 colonnes
+      grid-row: 3;
+    }
+  }
+}
