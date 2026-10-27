@@ -41,7 +41,10 @@ body {
 
 .hero {
   row-gap: var(--grid-row-gap);
-  margin-top: clamp(2.5rem, 6vw, 5rem);
+}
+
+section + section {
+  margin-top: var(--space-4xl);
 }
 
 // Tablette (jusqu'à 1023px)

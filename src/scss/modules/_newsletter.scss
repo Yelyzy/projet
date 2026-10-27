@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 311fr 385fr 385fr 311fr;
   column-gap: var(--space-xs);
+  margin-bottom: var(--space-l);
 }
 
 // обёртка не участвует в раскладке, её дети встают прямо в грид галереи
@@ -53,11 +54,6 @@
 .newsletter-img:nth-of-type(3) {
   grid-row: 1;
   aspect-ratio: 385 / 398;
-}
-
-.newsletter-body {
-  padding-top: var(--space-l);
-  padding-bottom: var(--space-4xl);
 }
 
 // ---------- Forme ----------
