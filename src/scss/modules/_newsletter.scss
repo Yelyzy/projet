@@ -95,24 +95,6 @@
   border-right: 0;
 }
 
-// ---------- Кнопка ----------
-.button-big-suscription {
-  display: inline-flex;
-  padding: 0.75rem 2rem;
-  justify-content: center;
-  align-items: center;
-  border: 0;
-  border-radius: 0;
-  background: var(--button-bg-black);
-  color: var(--text-white);
-  cursor: pointer;
-  text-transform: uppercase;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
 @media (max-width: 63.9375rem) {
   .newsletter-form {
     grid-column: 2 / span 6;

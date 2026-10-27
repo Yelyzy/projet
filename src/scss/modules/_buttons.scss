@@ -16,24 +16,16 @@
 
 /* Subscribe */
 
-.btn--subscribe {
+.btn-big-suscription {
   padding: 0.75rem 2rem;
   background: var(--button-bg-black);
   color: var(--text-white);
-
-  /* ajouter les vrai variables typo :D  */
-
-  font-size: var(--body-large-semibold-large, 1.25rem);
-  font-weight: 300;
-  line-height: 130%;
-
   text-transform: uppercase;
 }
 
 /* Big */
 
 .btn--read-more-big {
-  font-size: var(--body-regular);
   background: var(--button-bg-blue);
   color: var(--button-text-blue);
   padding: 0.375rem 2rem;
@@ -42,7 +34,6 @@
 /* Small */
 
 .btn--read-more-small {
-  font-size: var(--body-small);
   background-color: var(--secondary-blue-100);
   color: var(--primary-blue-100);
   padding: 0.25rem 1rem;
