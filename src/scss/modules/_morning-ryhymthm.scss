@@ -19,6 +19,10 @@
 
     &--small {
       aspect-ratio: 25 / 16;
+
+      // Mobile / tablette : petite et collée à droite
+      align-self: flex-end;
+      width: min(14.5625rem, 100%);
     }
   }
 
@@ -38,7 +42,7 @@
     }
   }
 
-  // ───── Desktop (1200px et plus) ─────
+  // ───── Desktop (1024px et plus) ─────
   @media (min-width: 64rem) {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -70,6 +74,8 @@
     &__media--small {
       grid-column: 10 / 13; // 3 colonnes
       grid-row: 3;
+      width: 100%; // reprend toute sa colonne du grid
+      align-self: auto; // laisse le grid (align-items: end) décider
     }
   }
 }

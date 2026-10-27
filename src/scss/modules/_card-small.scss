@@ -118,8 +118,7 @@
     }
   }
 
-  // Móvil (menos de 600px) y pantallas táctiles: siempre abierta
-  @media (max-width: 37.4375rem), (hover: none) {
+  @media (max-width: 63.9375rem), (hover: none) {
     @include card-small-open;
   }
 }

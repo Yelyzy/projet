@@ -1,21 +1,16 @@
 .article-hero {
-  --hero-padding: var(--grid-margin);
-
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 5rem var(--hero-padding) 3rem;
+  gap: var(--space-m);
+  padding: var(--space-l) var(--grid-margin) 0; // ← NUEVO: Spacing/L arriba en móvil
 
-  // ───── Kicker : flèche + rubrique ─────
+  // ───── Kicker ─────
   &__kicker {
     display: flex;
     align-items: center;
     gap: 2rem;
-    margin-left: calc(
-      -1 * var(--hero-padding)
-    ); // la flèche part du bord de la page
+    margin-left: calc(-1 * var(--grid-margin));
 
-    // On neutralise le placement en grille du hero de la home
     .hero-kicker-line,
     .hero-kicker-label {
       grid-column: auto;
@@ -37,7 +32,7 @@
     }
   }
 
-  // ───── Titre ─────
+  // ───── Título ─────
   &__header {
     text-align: center;
   }
@@ -54,37 +49,10 @@
   &__subtitle {
     margin-top: 0.75rem;
     color: var(--text-main);
+    text-align: left; // ← NUEVO: a la izquierda en móvil, como en la maqueta
   }
 
-  // ───── Colonne gauche ─────
-  &__intro {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3rem; // Spacing/L dans Figma
-  }
-
-  &__author {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__author-name {
-    color: var(--text-main);
-  }
-
-  &__author-role {
-    color: var(--text-black-100);
-  }
-
-  &__body {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    color: var(--text-main);
-  }
-
-  // ───── Colonne droite : image + tags ─────
+  // ───── Imagen + tags ─────
   &__visual {
     display: flex;
     flex-direction: column;
@@ -116,24 +84,65 @@
     }
   }
 
-  // ───── Desktop ─────
-  @media (min-width: 64rem) {
+  // ───── Autora + cita + texto ─────
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-l);
+    margin-top: var(--space-s); // ← NUEVO: un poco más de aire tras los tags
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__author-name {
+    color: var(--text-main);
+  }
+
+  &__author-role {
+    color: var(--text-black-100);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-main);
+  }
+
+  // ───── Escritorio (1200px y más) ─────
+  @media (min-width: 75rem) {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 1.5rem;
-    row-gap: 3rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gutter);
+    row-gap: var(--space-l);
+    padding-top: var(--space-xxl); // ← NUEVO: 5rem arriba en escritorio
 
     &__kicker,
     &__header {
       grid-column: 1 / -1;
     }
 
+    &__subtitle {
+      text-align: center; // ← NUEVO
+    }
+
+    &__tags {
+      justify-content: flex-end; // ← NUEVO: a la derecha en escritorio
+    }
+
     &__intro {
       grid-column: 1 / 5;
+      grid-row: 3; // ← NUEVO
+      margin-top: 0; // ← NUEVO
     }
 
     &__visual {
       grid-column: 5 / -1;
+      grid-row: 3; // ← NUEVO
     }
   }
 }
