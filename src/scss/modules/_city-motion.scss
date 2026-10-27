@@ -31,7 +31,7 @@
     }
   }
 
-  @media (min-width: 75rem) {
+  @media (min-width: 64rem) {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: var(--grid-gutter);

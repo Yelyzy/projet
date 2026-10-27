@@ -116,8 +116,8 @@
     }
   }
 
-  // ───── Desktop (1200px et plus) ─────
-  @media (min-width: 75rem) {
+  // ───── Desktop ─────
+  @media (min-width: 64rem) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 1.5rem;

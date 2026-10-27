@@ -46,7 +46,7 @@
 }
 
 /* Tablet: колонки рядом, по 4 из 8 */
-@media (max-width: 1023px) {
+@media (max-width: 63.9375rem) {
   .faq-title,
   .faq-intro {
     grid-column: 1 / -1;
@@ -60,7 +60,7 @@
 }
 
 /* Mobile: всё в столбик */
-@media (max-width: 599px) {
+@media (max-width: 37.4375rem) {
   .faq-col-left,
   .faq-col-right {
     grid-column: 1 / -1;
