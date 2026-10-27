@@ -36,6 +36,16 @@
   align-items: center;
   background-color: var(--secondary-blue-100);
   color: var(--primary-blue-100);
+  transition: background-color 0.2s;
+
+  &:hover {
+    text-decoration: none;
+    background-color: color-mix(
+      in srgb,
+      var(--secondary-blue-100) 80%,
+      transparent
+    );
+  }
 }
 
 @media (max-width: 37.4375rem) {
