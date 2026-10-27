@@ -1,0 +1,49 @@
+<section
+  class="newsletter newsletter--simple"
+  aria-labelledby="newsletter-simple-title"
+>
+  <div class="newsletter-intro">
+    <h2 id="newsletter-simple-title" class="title-main">Don't miss a story</h2>
+    <p class="body-large">No spam, just the city worth talking about</p>
+  </div>
+
+  <div class="newsletter-body">
+    <form class="newsletter-form" action="#" method="post">
+      <label class="visually-hidden" for="newsletter-first">First name</label>
+      <input
+        class="newsletter-input body-large"
+        id="newsletter-first"
+        type="text"
+        name="first-name"
+        placeholder="First name"
+        autocomplete="given-name"
+      />
+
+      <label class="visually-hidden" for="newsletter-last">Last name</label>
+      <input
+        class="newsletter-input body-large"
+        id="newsletter-last"
+        type="text"
+        name="last-name"
+        placeholder="Last name"
+        autocomplete="family-name"
+      />
+
+      <div class="newsletter-email">
+        <label class="visually-hidden" for="newsletter-email">Email</label>
+        <input
+          class="newsletter-input body-large"
+          id="newsletter-email"
+          type="email"
+          name="email"
+          placeholder="Email"
+          autocomplete="email"
+          required
+        />
+        <button class="button-big-suscription body-large" type="submit">
+          Subscribe
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
