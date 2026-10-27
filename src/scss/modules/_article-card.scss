@@ -4,7 +4,7 @@
   grid-template-columns: subgrid;
 }
 
-// ---------- Закрытая: колонки 9–12, высота 200px ----------
+// ---------- Carte fermée ----------
 .article-card-toggle {
   grid-column: 9 / -1;
   grid-row: 1;
@@ -15,60 +15,46 @@
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   column-gap: 1rem;
-  box-sizing: border-box;
   width: 100%;
   height: 12.5rem;
   margin: 0;
   padding: 0.75rem;
   overflow: hidden;
   border: none;
-  background: var(
-    --background-section-contrast
-  ); // фон, с которым смешивается фото
   color: inherit;
   text-align: left;
   cursor: pointer;
-
-  // слой 2: бежевый 50%, color-burn
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: var(--secondary-beige-50, rgb(240 238 223 / 0.5));
-    mix-blend-mode: color-burn;
-    pointer-events: none;
-  }
-
-  // слой 3: синий, color
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    background: #4c53a2;
-    mix-blend-mode: color;
-    pointer-events: none;
-  }
 
   &:focus-visible {
     outline: 2px solid var(--text-orange-light);
     outline-offset: 2px;
   }
 
-  // заголовок
-  .body-regular {
+  // filtre blue sur l'image,  multiply
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1; // над картинкой (0), под текстом (2)
+    background: var(--primary-blue-100);
+    mix-blend-mode: multiply;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .body-regular,
+  time {
     position: relative;
-    z-index: 4;
+    z-index: 2;
+  }
+
+  .body-regular {
     align-self: start;
     text-transform: uppercase;
     color: var(--logo-white);
   }
 
-  // дата
   time {
-    position: relative;
-    z-index: 4;
     grid-column: 2;
     align-self: end;
     justify-self: end;
@@ -76,7 +62,6 @@
   }
 }
 
-// слой 1: фото, luminosity
 .article-card-thumb {
   position: absolute;
   inset: 0;
@@ -84,22 +69,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  mix-blend-mode: luminosity;
 }
 
-// слой 4: градиент сверху, чтобы читался заголовок
-.article-card-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background: linear-gradient(
-    180deg,
-    var(--background-section-contrast) 16.83%,
-    transparent 45.4%
-  );
-  pointer-events: none;
-}
-// ---------- Открытая: вся ширина сетки ----------
+// ---------- Carte ouverte ----------
 .article-card.is-open > .article-card-toggle {
   display: none;
 }
@@ -125,42 +97,36 @@
   justify-content: center;
   gap: 0.5rem;
   min-width: 0;
-  min-height: 0;
   overflow: hidden;
   padding-left: 2.625rem;
 
-  > .article-card-header,
-  > .button-small {
+  > * {
     flex-shrink: 0;
   }
 
   > .body-regular {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; // на узких экранах — 2 строки
-    flex-shrink: 0; // не сжимать: высота = ровно N строк
+    -webkit-line-clamp: 2;
     overflow: hidden;
-    padding-top: 0.3em; // место для верха буквицы
+    padding-top: 0.3em; // place pour la lettrine
     margin: -0.3em 0 0;
     color: var(--logo-white);
+
+    &::first-letter {
+      initial-letter: 2; // hauteur de la lettre = 2 lignes
+      margin-right: 0.5rem;
+      color: var(--text-orange-light);
+      font-family: "Akke Variable", serif;
+      font-weight: 300;
+    }
   }
 
   > .button-small {
-    margin-top: 0.25rem; // итого 12px до кнопки, как в Figma
+    margin-top: 0.25rem;
   }
 }
 
-.article-card-content > .body-regular {
-  &::first-letter {
-    initial-letter: 2; // буква высотой ровно в 2 строки
-    margin-right: 0.5rem;
-    color: var(--text-orange-light);
-    font-family: "Akke Variable", serif;
-    font-weight: 300;
-  }
-}
-
-// заголовок и автор прижаты вправо, ширина 411 из 584
 .article-card-header {
   align-self: flex-end;
   display: flex;
@@ -181,20 +147,19 @@
     text-transform: uppercase;
     color: var(--logo-white);
   }
+
+  .body-small {
+    color: var(--logo-white);
+  }
 }
 
-// картинка: колонки 7–12
 .article-card-img {
   grid-column: 7 / -1;
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: bottom;
-  mix-blend-mode: plus-lighter;
-}
-.article-card-header .body-small {
-  color: var(--logo-white);
+  min-height: 0;
 }
 
 // ==========================================================
@@ -202,7 +167,7 @@
 // ==========================================================
 @media (max-width: 63.9375rem) {
   .article-card-toggle {
-    grid-column: 5 / -1; // правая половина
+    grid-column: 5 / -1;
   }
 
   .article-card-content {
@@ -224,17 +189,15 @@
 // Mobile: 6 colonnes
 // ==========================================================
 @media (max-width: 37.4375rem) {
-  // ---------- Закрытая: на всю ширину ----------
   .article-card-toggle {
     grid-column: 1 / -1;
     height: auto;
-    aspect-ratio: 361 / 171; // пропорции из мобильного макета
+    aspect-ratio: 361 / 171;
   }
 
-  // ---------- Открытая: картинка сверху, текст снизу ----------
   .article-card-open {
-    height: auto; // высота по содержимому, а не 200px
-    row-gap: 1.5rem; // 24px от картинки до заголовка
+    height: auto;
+    row-gap: 1.5rem;
   }
 
   .article-card-img {
@@ -249,10 +212,10 @@
     grid-row: 2;
     justify-content: flex-start;
     gap: 0.875rem; // 14px
-    overflow: visible; // на мобильном ничего не обрезаем по высоте
+    overflow: visible;
 
     > .body-regular {
-      -webkit-line-clamp: 3; // 3 строки, как в макете
+      -webkit-line-clamp: 3;
     }
 
     > .button-small {

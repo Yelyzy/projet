@@ -72,7 +72,10 @@ document
 // Article card
 // ==========================================================
 
-// Сколько строк текста помещается в открытой карточке: 3, как в макете, или 2
+// Десктоп и планшет: от 600px. На мобильном карточки не переставляются.
+const isWide = window.matchMedia("(min-width: 37.5rem)");
+
+// Сколько строк текста помещается в открытой карточке: 3 или 2
 const fitExcerpt = (card) => {
   const panel = card.querySelector(".article-card-open");
   const content = card.querySelector(".article-card-content");
@@ -81,7 +84,7 @@ const fitExcerpt = (card) => {
 
   for (let lines = 3; lines >= 2; lines--) {
     text.style.webkitLineClamp = lines;
-    if (content.scrollHeight <= content.clientHeight) break; // помещается
+    if (content.scrollHeight <= content.clientHeight) break;
   }
 };
 
@@ -95,6 +98,32 @@ const setOpen = (card, isOpen) => {
   if (isOpen) fitExcerpt(card);
 };
 
+// Переставить карточки по кругу, чтобы выбранная оказалась второй (в центре)
+const moveToMiddle = (card) => {
+  const section = card.parentElement;
+  const cards = [...section.querySelectorAll(":scope > .article-card")];
+  if (cards.length < 3) return;
+
+  // запоминаем, где карточки стоят сейчас
+  const before = new Map(cards.map((c) => [c, c.getBoundingClientRect().top]));
+
+  // новый порядок: выбранная карточка на втором месте, остальные по кругу
+  const shift = (cards.indexOf(card) - 1 + cards.length) % cards.length;
+  const rotated = [...cards.slice(shift), ...cards.slice(0, shift)];
+  rotated.forEach((c) => section.append(c));
+
+  // плавно довозим каждую карточку со старого места на новое
+  if (reduceMotion.matches) return;
+  rotated.forEach((c) => {
+    const dy = before.get(c) - c.getBoundingClientRect().top;
+    if (!dy) return;
+    c.animate([{ transform: `translateY(${dy}px)` }, { transform: "none" }], {
+      duration: 450,
+      easing: "cubic-bezier(0.2, 0.7, 0.2, 1)",
+    });
+  });
+};
+
 // Пересчитывать строки, когда меняется ширина карточки
 const resizeObserver = new ResizeObserver((entries) => {
   entries.forEach((entry) => fitExcerpt(entry.target.closest(".article-card")));
@@ -104,7 +133,6 @@ document.querySelectorAll(".article-card").forEach((card, index) => {
   const toggle = card.querySelector(":scope > button");
   const panel = card.querySelector(".article-card-open");
 
-  // свой id для каждой карточки, чтобы aria-controls вёл на неё
   const id = `article-${index + 1}`;
   panel.id = id;
   toggle.setAttribute("aria-controls", id);
@@ -112,16 +140,18 @@ document.querySelectorAll(".article-card").forEach((card, index) => {
   resizeObserver.observe(card.querySelector(".article-card-content"));
 
   toggle.addEventListener("click", () => {
-    // в рубрике открыта только одна карточка: закрыть остальные
+    // в рубрике открыта только одна карточка
     card.parentElement.querySelectorAll(".article-card").forEach((other) => {
       if (other !== card) setOpen(other, false);
     });
 
     setOpen(card, true);
 
-    // фокус переходит на заголовок раскрытой карточки
+    // десктоп и планшет: открытая карточка встаёт в центр стопки
+    if (isWide.matches) moveToMiddle(card);
+
     const title = panel.querySelector("h4");
     title.setAttribute("tabindex", "-1");
-    title.focus();
+    title.focus({ preventScroll: true });
   });
 });
