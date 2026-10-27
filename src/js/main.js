@@ -47,6 +47,57 @@ navItems.forEach((navitem) => {
   });
 });
 
+const mobileMenuButton = document.querySelector(".mobile-menu-button");
+const mobileMenu = document.querySelector(".mobile-nav");
+const mobileMenuItems = document.querySelectorAll(".mobile-nav__item");
+const mobileScreen = window.matchMedia("(max-width: 37.4375rem)");
+
+mobileMenuButton?.addEventListener("click", () => {
+  const isOpen = document.body.classList.toggle("mobile-menu-open");
+  mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
+  mobileMenuButton.setAttribute(
+    "aria-label",
+    isOpen ? "Close menu" : "Open menu",
+  );
+});
+
+mobileMenuItems.forEach((item) => {
+  const button = item.querySelector("button");
+  const submenu = item.querySelector("ul");
+
+  button.addEventListener("click", () => {
+    const isOpen = submenu.hidden;
+
+    mobileMenuItems.forEach((otherItem) => {
+      otherItem.querySelector("ul").hidden = true;
+      const otherButton = otherItem.querySelector("button");
+      otherButton.setAttribute("aria-expanded", "false");
+      otherButton.classList.replace("body-semibold", "body-large");
+    });
+
+    submenu.hidden = !isOpen;
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.classList.replace(
+      isOpen ? "body-large" : "body-semibold",
+      isOpen ? "body-semibold" : "body-large",
+    );
+  });
+});
+
+mobileMenu?.addEventListener("click", (event) => {
+  if (!event.target.closest("a")) return;
+  document.body.classList.remove("mobile-menu-open");
+  mobileMenuButton?.setAttribute("aria-expanded", "false");
+  mobileMenuButton?.setAttribute("aria-label", "Open menu");
+});
+
+mobileScreen.addEventListener("change", (event) => {
+  if (event.matches) return;
+  document.body.classList.remove("mobile-menu-open");
+  mobileMenuButton?.setAttribute("aria-expanded", "false");
+  mobileMenuButton?.setAttribute("aria-label", "Open menu");
+});
+
 const switchInput = document.querySelector(".theme-switch__input");
 if (switchInput) {
   const root = document.documentElement;

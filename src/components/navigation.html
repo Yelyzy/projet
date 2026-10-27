@@ -6,12 +6,27 @@
     <icon src="assets/icons/logo.svg"></icon>
   </a>
   <div class="header-tools">
-    <input
-      class="header-search tag"
-      type="search"
-      placeholder="Search"
-      aria-label="Search articles"
-    />
+    <label class="header-search-field">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="10.8" cy="10.8" r="6.3"></circle>
+        <path d="m15.5 15.5 4.2 4.2"></path>
+      </svg>
+      <input
+        class="header-search"
+        type="search"
+        placeholder="Search"
+        aria-label="Search articles"
+      />
+    </label>
+    <button
+      class="mobile-menu-button"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <span class="mobile-menu-button__icon" aria-hidden="true"></span>
+    </button>
   </div>
 </header>
 
@@ -80,3 +95,5 @@
     </li>
   </ul>
 </nav>
+
+<include src="./components/nav.mobile.html"></include>
