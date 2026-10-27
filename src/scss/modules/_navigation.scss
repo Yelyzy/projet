@@ -120,7 +120,12 @@
   padding: 1.0625rem 1rem;
   border: 1px solid currentColor;
   background: var(--background-full-page);
+  text-align: left;
   list-style: none;
+}
+
+.dropdown-menu > li {
+  width: 100%;
 }
 
 .nav a {
@@ -130,6 +135,7 @@
 .dropdown-menu.open {
   display: flex;
   margin-top: 0.87rem;
+  min-width: 180px;
 }
 
 @media (max-width: 63.9375rem) {

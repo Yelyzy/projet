@@ -50,7 +50,7 @@ navItems.forEach((navitem) => {
 const mobileMenuButton = document.querySelector(".mobile-menu-button");
 const mobileMenu = document.querySelector(".mobile-nav");
 const mobileMenuItems = document.querySelectorAll(".mobile-nav__item");
-const mobileScreen = window.matchMedia("(max-width: 37.4375rem)");
+const mobileScreen = window.matchMedia("(max-width: 44rem)");
 
 mobileMenuButton?.addEventListener("click", () => {
   const isOpen = document.body.classList.toggle("mobile-menu-open");
