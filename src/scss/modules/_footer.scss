@@ -107,7 +107,7 @@ a {
   }
 
   .footer-links-follow {
-    grid-column: 1;
+    grid-column: 1 / -1;
     margin-left: -0.75rem;
     gap: 0.5rem; // 8px между целями (2 мм)
   }

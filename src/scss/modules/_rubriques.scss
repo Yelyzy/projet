@@ -16,17 +16,22 @@
   }
 }
 
-#rubrique-city {
-  color: var(--text-orange-light);
-}
-
 .rubrique-title {
+  color: var(--text-orange-light);
   padding: var(--space-l) 0 var(--space-l) 0;
   position: absolute;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: var(--space-s);
+
+  h2 {
+    text-box: trim-both cap alphabetic;
+  }
+}
+
+.rubrique-line {
+  color: var(--text-orange-light);
 }
 
 .button-small {
