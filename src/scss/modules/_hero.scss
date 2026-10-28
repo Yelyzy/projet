@@ -158,11 +158,13 @@
     min-height: calc(100vh - 5rem);
   }
   .hero-kicker-line {
-    grid-column: 1;
+    grid-column: 1 / span 4;
   }
 
   .hero-kicker-label {
-    grid-column: 2 / -1;
+    grid-column: 5 / -1;
+    align-self: center;
+    justify-self: end;
   }
 
   .hero-media {
