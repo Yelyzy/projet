@@ -68,20 +68,9 @@
     object-fit: cover;
   }
 
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
+  .tag-list {
     justify-content: flex-end;
     gap: 0.75rem;
-    list-style: none;
-
-    a {
-      display: block;
-      padding: 0.375rem 0.875rem;
-      border: 1px solid var(--stroke-main);
-      color: var(--text-main);
-      text-decoration: none;
-    }
   }
 
   // ───── Autora + cita + texto ─────
@@ -128,10 +117,6 @@
 
     &__subtitle {
       text-align: center; // ← NUEVO
-    }
-
-    &__tags {
-      justify-content: flex-end; // ← NUEVO: a la derecha en escritorio
     }
 
     &__intro {
