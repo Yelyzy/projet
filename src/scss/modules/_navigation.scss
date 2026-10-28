@@ -72,10 +72,14 @@
 }
 
 .main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   width: 100%;
   color: var(--text-black-100);
   border-block: 1px solid currentColor;
   margin-bottom: var(--space-xxl);
+  background: var(--background-full-page);
 }
 
 .nav-list {
