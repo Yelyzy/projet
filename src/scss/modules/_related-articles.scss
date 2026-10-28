@@ -5,14 +5,13 @@
     margin: 0 0 var(--space-m);
     padding-inline: var(--grid-margin);
     color: var(--text-main);
-    text-align: center; // centrado en móvil
+    text-align: center;
   }
 
-  // Móvil: columna centrada
+  // Móvil: columna a todo el ancho
   &__list {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--space-m);
     margin: 0;
     padding-inline: var(--grid-margin);
@@ -20,11 +19,44 @@
   }
 
   &__item {
-    width: min(14.5rem, 100%);
+    width: 100%;
     min-width: 0;
   }
 
-  // Desde 600px: carrusel horizontal
+  // ───── Móvil (< 600px): tarjeta horizontal y cerrada ─────
+  @media (max-width: 37.4375rem) {
+    .card-small {
+      aspect-ratio: 15 / 8;
+
+      // filtro azul visible
+      &::after {
+        opacity: 0.85;
+      }
+
+      // solo categoría arriba
+      .card-small__title {
+        max-height: 0;
+        opacity: 0;
+      }
+
+      .card-small__category {
+        background: var(--card-accent);
+        color: var(--card-ink);
+      }
+
+      // fecha centrada abajo, sin fondo
+      .card-small__foot {
+        align-items: flex-end;
+        background: transparent;
+      }
+
+      .card-small__cta {
+        display: none;
+      }
+    }
+  }
+
+  // ───── Desde 600px: carrusel horizontal ─────
   @media (min-width: 37.5rem) {
     &__title {
       text-align: left;
@@ -32,18 +64,13 @@
 
     &__list {
       flex-direction: row;
-      align-items: stretch;
       gap: var(--space-s);
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-padding-inline: var(--grid-margin);
-
-      // Barre de défilement invisible, le scroll reste actif
-      scrollbar-width: none; // Firefox
-      -ms-overflow-style: none; // anciens Edge / IE
+      scrollbar-width: none;
 
       &::-webkit-scrollbar {
-        // Chrome, Safari
         display: none;
       }
     }

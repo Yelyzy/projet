@@ -143,6 +143,10 @@
 }
 
 @media (max-width: 63.9375rem) {
+  .site-header {
+    background-color: var(--background-full-page);
+  }
+
   .header-toggle {
     grid-column: 1 / span 2;
   }
