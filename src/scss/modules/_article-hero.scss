@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-m);
-  padding: var(--space-l) var(--grid-margin) 0; // ← NUEVO: Spacing/L arriba en móvil
+  padding: 0 var(--space-l); // ← NUEVO: Spacing/L arriba en móvil
 
   // ───── Kicker ─────
   &__kicker {
@@ -108,7 +108,6 @@
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: var(--grid-gutter);
     row-gap: var(--space-l);
-    padding-top: var(--space-xxl); // ← NUEVO: 5rem arriba en escritorio
 
     &__kicker,
     &__header {
