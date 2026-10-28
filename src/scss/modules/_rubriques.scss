@@ -1,6 +1,7 @@
 .rubrique {
   position: relative;
   isolation: isolate;
+  grid-auto-rows: 1fr;
   row-gap: var(--space-xs); // 16px
   padding-block: var(--space-l); // 48px
   color: var(--text-white);
