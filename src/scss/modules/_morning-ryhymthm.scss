@@ -42,6 +42,10 @@
     }
   }
 
+  &__text-column {
+    display: contents;
+  }
+
   // ───── Desktop (1024px et plus) ─────
   @media (min-width: 64rem) {
     display: grid;
@@ -64,6 +68,8 @@
     &__media--large {
       grid-column: 1 / 6; // 5 colonnes
       grid-row: 3;
+      align-self: stretch;
+      aspect-ratio: auto;
     }
 
     &__text {
@@ -76,6 +82,61 @@
       grid-row: 3;
       width: 100%; // reprend toute sa colonne du grid
       align-self: auto; // laisse le grid (align-items: end) décider
+    }
+
+    &__text-column {
+      display: contents;
+    }
+  }
+
+  @media (min-width: 37.5rem) and (max-width: 63.9375rem) {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    column-gap: var(--grid-gutter);
+    row-gap: var(--space-m);
+    align-items: start;
+
+    &__title {
+      grid-column: 1 / -1;
+    }
+
+    &__quote {
+      grid-column: 1 / 6;
+      grid-row: 2;
+    }
+
+    &__media--large {
+      grid-column: 1 / 6;
+      grid-row: 3;
+      width: 100%;
+    }
+
+    &__text-column {
+      display: flex;
+      flex-direction: column;
+      grid-column: 6 / -1;
+      grid-row: 2 / span 3;
+      min-width: 0;
+    }
+
+    &__media--small {
+      width: 100%;
+      align-self: start;
+    }
+  }
+
+  @media (max-width: 37.4375rem) {
+    gap: var(--space-m);
+    margin-top: var(--space-l);
+
+    &__media--large {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 63.9375rem) {
+    &__media--small {
+      display: none;
     }
   }
 }
