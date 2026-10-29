@@ -35,6 +35,10 @@
     }
   }
 
+  &__copy-column {
+    display: contents;
+  }
+
   // ───── Desktop (1024px y más) ─────
   @media (min-width: 64rem) {
     display: grid;
@@ -70,6 +74,10 @@
       grid-column: 10 / 13;
       grid-row: 1 / span 3;
     }
+
+    &__copy-column {
+      display: contents;
+    }
   }
 
   @media (min-width: 37.5rem) and (max-width: 63.9375rem) {
@@ -90,19 +98,20 @@
       align-self: stretch;
     }
 
-    &__quote {
-      grid-column: 1 / 5;
-      grid-row: 3;
-    }
-
-    &__text--a {
+    &__copy-column {
+      display: flex;
+      flex-direction: column;
       grid-column: 5 / -1;
       grid-row: 2;
+      gap: var(--space-m);
+      min-width: 0;
     }
 
+    &__quote,
+    &__text--a,
     &__text--b {
-      grid-column: 5 / -1;
-      grid-row: 3;
+      grid-column: auto;
+      grid-row: auto;
     }
   }
 

@@ -62,7 +62,17 @@
 
     &__media {
       width: 100%; // reprend toute sa colonne du grid
-      align-self: auto; // laisse le grid décider
+      align-self: stretch;
+      aspect-ratio: auto;
+    }
+  }
+
+  @media (max-width: 37.4375rem) {
+    &__media {
+      align-self: stretch;
+      width: 100%;
+      height: 200px;
+      aspect-ratio: auto;
     }
   }
 }
