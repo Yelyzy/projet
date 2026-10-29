@@ -60,6 +60,14 @@
 
 /* Mobile : les questions sont empilées. */
 @media (max-width: 37.4375rem) {
+  .faq-col-right .acc-item:first-child {
+    border-top: 0;
+  }
+
+  .faq {
+    row-gap: 0;
+  }
+
   .faq-col-left,
   .faq-col-right {
     grid-column: 1 / -1;
