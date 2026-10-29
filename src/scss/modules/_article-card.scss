@@ -37,7 +37,7 @@
     z-index: 1; // над картинкой (0), под текстом (2)
     background: var(--primary-blue-100);
     mix-blend-mode: multiply;
-    opacity: 0.35;
+    opacity: 0.4;
     pointer-events: none;
   }
 
@@ -151,6 +151,8 @@
 }
 
 .article-card-img {
+  filter: grayscale(1);
+  animation: to-grayscale 0.3s ease;
   grid-column: 7 / -1;
   width: 100%;
   height: 100%;
@@ -159,6 +161,14 @@
   min-height: 0;
 }
 
+@keyframes to-grayscale {
+  from {
+    filter: grayscale(0);
+  }
+  to {
+    filter: grayscale(1);
+  }
+}
 // ==========================================================
 // Tablette: 8 colonnes
 // ==========================================================

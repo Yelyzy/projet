@@ -1,40 +1,21 @@
 <article class="article-card">
   <button class="article-card-toggle" type="button" aria-expanded="false">
-    <img
-      class="article-card-thumb"
-      src="/src/img/card-article1.png?as=webp"
-      alt=""
-    />
-    <span class="body-regular">
-      The city through the eyes of those who live it every day
-    </span>
-    <time class="body-small" datetime="2026-09-15">15.09.2026</time>
+    <img class="article-card-thumb" src="{{ img }}" alt="" />
+    <span class="body-regular">{{ title }}</span>
+    <time class="body-small" datetime="{{ datetime }}">{{ date }}</time>
   </button>
 
-  <!-- card ouverte -->
   <div class="article-card-open" hidden>
     <div class="article-card-content">
       <header class="article-card-header">
-        <h4 class="h4-extrabold">
-          The city through the eyes of those who live it every day
-        </h4>
-        <p class="body-small">By Clara Morel · Portrait · 4 min read</p>
+        <h4 class="h4-extrabold">{{ title }}</h4>
+        <p class="body-small">{{ meta }}</p>
       </header>
-
-      <p class="body-regular">
-        Between the medieval facades of the Lower Town and the new neighborhoods
-        emerging on the outskirts, Fribourg continues to evolve without losing
-        its identity. For many residents, this human-scaled city offers a rare
-        balance of heritage, student life, and urban vitality.
-      </p>
-
-      <a class="btn btn--read-more-small body-small" href="#">Read more</a>
+      <p class="body-regular">{{ text }}</p>
+      <a class="btn btn--read-more-small body-small" href="{{ link }}"
+        >Read more</a
+      >
     </div>
-
-    <img
-      class="article-card-img"
-      src="/src/img/card-article1.png?as=webp"
-      alt=""
-    />
+    <img class="article-card-img" src="{{ img }}" alt="" />
   </div>
 </article>

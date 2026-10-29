@@ -27,31 +27,10 @@
   @media (max-width: 37.4375rem) {
     .card-small {
       aspect-ratio: 15 / 8;
+      @include card-small-open;
 
-      // filtro azul visible
       &::after {
         opacity: 0.85;
-      }
-
-      // solo categoría arriba
-      .card-small__title {
-        max-height: 0;
-        opacity: 0;
-      }
-
-      .card-small__category {
-        background: var(--card-accent);
-        color: var(--card-ink);
-      }
-
-      // fecha centrada abajo, sin fondo
-      .card-small__foot {
-        align-items: flex-end;
-        background: transparent;
-      }
-
-      .card-small__cta {
-        display: none;
       }
     }
   }
