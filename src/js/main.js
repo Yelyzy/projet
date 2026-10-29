@@ -152,13 +152,25 @@ const fitExcerpt = (card) => {
   }
 };
 
+// Changer le nom de la rubrique selon la carte ouverte
+const updateRubric = (card) => {
+  const rubric = card.dataset.rubric;
+  if (!rubric) return;
+
+  const title = card.closest(".rubrique")?.querySelector(".rubrique-title h2");
+  if (title) title.textContent = rubric;
+};
+
 const setOpen = (card, isOpen) => {
   card.classList.toggle("is-open", isOpen);
   card
     .querySelector(":scope > button")
     .setAttribute("aria-expanded", String(isOpen));
   card.querySelector(".article-card-open").hidden = !isOpen;
-  if (isOpen) fitExcerpt(card);
+  if (isOpen) {
+    fitExcerpt(card);
+    updateRubric(card);
+  }
 };
 
 const moveToMiddle = (card) => {
