@@ -1,14 +1,14 @@
-<div class="acc-item">
+<div class="acc-item {{ open }}">
   <button
+    type="button"
     class="h4-extrabold"
     aria-expanded="false"
-    aria-controls="acc-panel-1"
   >
     <span>{{ question }}</span>
     <span class="acc-icon" aria-hidden="true"></span>
   </button>
 
-  <div class="acc-panel" id="acc-panel-1" inert>
+  <div class="acc-panel" inert>
     <div class="acc-content">
       <p class="acc-answer body-regular">{{ answer }}</p>
     </div>

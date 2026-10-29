@@ -1,4 +1,4 @@
-/* ---------- @font-face ---------- */
+/* ---------- Déclaration des polices ---------- */
 @font-face {
   font-family: "Akke Variable TRIAL";
   src: url("../font/akke-trial/AkkeVariable[XHGT,opsz,wdth,wght].woff2")
@@ -31,61 +31,47 @@
 }
 
 :root {
-  /* ---------- Font families ---------- */
+  /* ---------- Familles de polices ---------- */
   --font-display: "Akke Variable TRIAL", "Times New Roman", serif;
   --font-grotesk: "Cabinet Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body:
     "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-family-sans: var(--font-body); /* алиас для body */
+  --font-family-sans: var(--font-body); /* Police sans empattement du corps de texte */
 
-  /* ---------- Font weights ---------- */
+  /* ---------- Graisses ---------- */
   --fw-light: 300;
   --fw-regular: 400;
-  --fw-medium: 500;
   --fw-extrabold: 800;
 
-  /* ---------- Font sizes (desktop) ---------- */
+  /* ---------- Tailles des titres et du corps de texte ---------- */
   --fs-h1: 4rem;
   --fs-h2: 3rem;
   --fs-h3: 2rem;
   --fs-h4: 1.5rem;
-  --fs-body-1: 1.25rem;
-  --fs-body-2: 1.125rem;
-  --fs-body-3: 1rem;
-  --fs-body-4: 0.875rem;
-  --fs-body-5: 0.75rem;
 
-  /* ---------- Line heights ---------- */
+  /* ---------- Hauteurs de ligne ---------- */
   --lh-auto: normal;
   --lh-90: 0.9;
   --lh-100: 1;
   --lh-110: 1.1;
-  --lh-130: 1.3;
 
-  /* ---------- Letter spacing (% → em) ---------- */
+  /* ---------- Espacement des lettres ---------- */
   --ls-tight: -0.03em; /* -3% */
-  --ls-0: 0;
-  --ls-1: 0.01em; /* 1% */
   --ls-2: 0.02em; /* 2% */
   --ls-6: 0.06em; /* 6% */
 }
 
-/* ---------- Font sizes (mobile) — значения из Figma Variables, режим "mobile" ---------- */
+/* ---------- Tailles de texte mobile définies dans les variables Figma ---------- */
 @media (max-width: 47.9375rem) {
   :root {
     --fs-h1: 2.25rem;
     --fs-h2: 1.875rem;
     --fs-h3: 1.25rem;
     --fs-h4: 1rem;
-    --fs-body-1: 1.125rem; /* large-semibold + large */
-    --fs-body-2: 1rem;
-    --fs-body-3: 0.875rem;
-    --fs-body-4: 0.875rem;
-    --fs-body-5: 0.75rem;
   }
 }
 
-// h1
+// Titre de niveau 1
 .title-main {
   font-family: var(--font-display);
   font-weight: var(--fw-regular);
@@ -105,7 +91,7 @@
   text-transform: lowercase;
 }
 
-// h2
+// Titre de niveau 2
 .title-small {
   font-family: var(--font-display);
   font-weight: var(--fw-regular);
@@ -124,7 +110,7 @@
   text-transform: lowercase;
 }
 
-// h3
+// Titre de niveau 3
 .h3-extrabold {
   font-family: var(--font-display);
   font-weight: var(--fw-extrabold);
@@ -143,7 +129,7 @@
   text-transform: uppercase;
 }
 
-// h4
+// Titre de niveau 4
 .h4-extrabold {
   font-family: var(--font-grotesk);
   font-weight: var(--fw-extrabold);
@@ -162,7 +148,7 @@
   text-transform: uppercase;
 }
 
-// body
+// Corps de texte
 .body-semibold {
   font-family: "IBM Plex Sans";
   font-size: var(--body-large-semibold-large, 1.25rem);
@@ -197,7 +183,7 @@
   letter-spacing: 0.00875rem;
 }
 
-// highlights
+// Éléments mis en évidence
 .quote {
   font-family: "IBM Plex Sans";
   font-size: var(--highlights-quote, 1.25rem);

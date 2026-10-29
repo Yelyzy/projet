@@ -5,8 +5,8 @@
   "scripts": {
     "clean:output": "rimraf dist",
     "clean:cache": "rimraf .parcel-cache",
-    "dev": "npm run clean:cache && parcel src/index.html",
-    "build": "npm run clean:output && parcel build src/index.html --public-url '.' --no-cache"
+    "dev": "npm run clean:cache && parcel src/index.html src/article.html",
+    "build": "npm run clean:output && parcel build src/index.html src/article.html --public-url '.' --no-cache"
   },
   "repository": {
     "type": "git",

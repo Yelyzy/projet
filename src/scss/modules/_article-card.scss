@@ -4,14 +4,14 @@
   grid-template-columns: subgrid;
 }
 
-// ---------- Carte fermée ----------
+// ---------- Carte repliée ----------
 .article-card-toggle {
   grid-column: 9 / -1;
   grid-row: 1;
 
   appearance: none;
   position: relative;
-  isolation: isolate; // слои смешиваются только внутри карточки
+  isolation: isolate; // Limite le mélange des calques à la carte.
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   column-gap: 1rem;
@@ -29,12 +29,12 @@
     outline-offset: 2px;
   }
 
-  // filtre blue sur l'image,  multiply
+  // Applique un filtre bleu à l’image.
   &::after {
     content: "";
     position: absolute;
     inset: 0;
-    z-index: 1; // над картинкой (0), под текстом (2)
+    z-index: 1; // Au-dessus de l’image (0) et sous le texte (2).
     background: var(--primary-blue-100);
     mix-blend-mode: multiply;
     opacity: 0.4;
@@ -70,7 +70,7 @@
   object-fit: cover;
 }
 
-// ---------- Carte ouverte ----------
+// ---------- Carte déployée ----------
 .article-card.is-open > .article-card-toggle {
   display: none;
 }
@@ -94,7 +94,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: var(--Spacing-XS, 1rem);
+  gap: 1rem;
   min-width: 0;
   overflow: hidden;
   padding-left: 2.625rem;
@@ -111,10 +111,10 @@
     color: var(--logo-white);
 
     &::first-letter {
-      initial-letter: 2; // hauteur de la lettre = 2 lignes
+      initial-letter: 2; // La lettrine occupe deux lignes.
       margin-right: 0.5rem;
       color: var(--text-orange-light);
-      font-family: "Akke Variable", serif;
+      font-family: "Akke Variable TRIAL", serif;
       font-weight: 300;
     }
   }
@@ -169,9 +169,7 @@
     filter: grayscale(1);
   }
 }
-// ==========================================================
-// Tablette: 8 colonnes
-// ==========================================================
+// Tablette : huit colonnes
 @media (max-width: 63.9375rem) {
   .article-card-toggle {
     grid-column: 5 / -1;
@@ -192,9 +190,7 @@
   }
 }
 
-// ==========================================================
-// Mobile: 6 colonnes
-// ==========================================================
+// Mobile : six colonnes
 @media (max-width: 37.4375rem) {
   .article-card-toggle {
     grid-column: 1 / -1;
@@ -218,7 +214,7 @@
     grid-column: 1 / -1;
     grid-row: 2;
     justify-content: flex-start;
-    gap: 0.375rem; // 14px
+    gap: 0.375rem;
     overflow: visible;
 
     > .body-regular {

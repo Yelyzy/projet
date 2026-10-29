@@ -8,7 +8,15 @@
       "strict": false
     },
     "posthtml-inline-svg": {
-      "cwd": "src"
+      "cwd": "src",
+      "svgo": {
+        "plugins": [
+          { "removeXMLNS": true },
+          { "removeViewBox": false },
+          { "removeDimensions": true },
+          { "cleanupIDs": false }
+        ]
+      }
     }
   }
 }

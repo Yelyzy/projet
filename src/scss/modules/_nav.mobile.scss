@@ -206,23 +206,8 @@
 
   .mobile-nav__footer {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-xs);
-    margin-top: auto;
-    padding: var(--space-xs) var(--grid-margin);
-    border-top: 1px solid var(--stroke-main, currentColor);
-  }
-
-  .mobile-nav__footer p {
-    margin: 0;
-  }
-
-  .mobile-nav__footer {
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     justify-content: space-between;
     gap: var(--space-xs);
     margin-top: auto;

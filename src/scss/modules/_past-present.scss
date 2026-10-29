@@ -1,13 +1,13 @@
 .past-present {
   margin-top: var(--space-4xl);
-  // Mobile / tablette : pas de marge sur la section, le fond bleu va jusqu'aux bords
+  // Mobile et tablette : le fond bleu s’étend jusqu’aux bords.
   padding-inline: 0;
 
   &__box {
     display: flex;
     flex-direction: column;
     gap: var(--space-m);
-    padding: var(--space-xl) var(--grid-margin); // ← antes: var(--space-l)
+    padding: var(--space-xl) var(--grid-margin);
     background: var(--background-section-contrast);
     color: var(--footer-text-white);
   }
@@ -32,7 +32,7 @@
     margin: 0;
     aspect-ratio: 1 / 1;
 
-    // Mobile / tablette : plus petite et collée à droite
+    // Mobile et tablette : image réduite et alignée à droite.
     align-self: flex-end;
     width: min(18.5rem, 100%);
   }
@@ -44,15 +44,15 @@
     object-fit: cover;
   }
 
-  // ───── Desktop ─────
+  // Ordinateur
   @media (min-width: 64rem) {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: var(--grid-gutter);
-    padding-inline: var(--grid-margin); // on remet la marge de la section
+    padding-inline: var(--grid-margin);
 
     &__box {
-      grid-column: 2 / 12; // 10 colonnes
+      grid-column: 2 / 12;
       display: grid;
       grid-template-columns: 4fr 3fr;
       column-gap: var(--space-m);
@@ -61,7 +61,7 @@
     }
 
     &__media {
-      width: 100%; // reprend toute sa colonne du grid
+      width: 100%;
       align-self: stretch;
       aspect-ratio: auto;
     }

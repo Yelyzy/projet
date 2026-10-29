@@ -4,7 +4,7 @@
   --grid-margin: 5rem;
   --grid-row-gap: var(--grid-gutter);
 
-  /* Spacing scale */
+  /* Échelle des espacements */
   --space-2xs: 0.875rem;
   --space-xs: 1rem;
   --space-s: 1.25rem;
@@ -15,8 +15,6 @@
   --space-3xl: 6.25rem;
   --space-4xl: 7.5rem;
 
-  --color-bg: #ebebf2;
-  --color-text: #2e2a6e;
   --color-accent: #e4502b;
 }
 
@@ -47,7 +45,7 @@ section + section {
   margin-top: var(--space-4xl);
 }
 
-// Tablette (jusqu'à 1023px)
+// Tablette (jusqu’à 1023 px)
 @media (max-width: 63.9375rem) {
   :root {
     --grid-columns: 8;
@@ -55,7 +53,7 @@ section + section {
   }
 }
 
-// Écrans jusqu'à 767px
+// Écrans jusqu’à 767 px
 @media (max-width: 47.9375rem) {
   :root {
     --space-xs: 0.75rem;
@@ -69,11 +67,11 @@ section + section {
   }
 }
 
-// Mobile (jusqu'à 599px)
+// Mobile (jusqu’à 599 px)
 @media (max-width: 37.4375rem) {
   :root {
     --grid-columns: 6;
-    --grid-gutter: clamp(0.5rem, 2.985vw, 0.875rem); // 12px на 402
+    --grid-gutter: clamp(0.5rem, 2.985vw, 0.875rem); // 12 px pour une largeur de 402 px
     --grid-margin: 1.25rem;
   }
 

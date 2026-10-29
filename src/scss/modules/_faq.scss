@@ -1,12 +1,11 @@
 .faq {
   row-gap: clamp(24px, 3vw, 45px);
-  row-gap: var(--faq-gap);
 }
 
 .faq-title {
   grid-column: 3 / span 6;
   margin: 0;
-  color: var(--texte-main-blue);
+  color: var(--text-main);
 }
 .faq-title .accent {
   color: var(--text-red-small);
@@ -22,7 +21,7 @@
   display: flex;
   flex-direction: column;
   grid-column: 5 / span 5;
-  color: var(--texte-main-blue);
+  color: var(--text-main);
   gap: 0.5rem;
 }
 .faq-intro h3 {
@@ -32,7 +31,7 @@
   margin: 0;
 }
 
-/* Две колонки вопросов, по 5 колонок сетки каждая */
+/* Deux colonnes de questions, chacune sur cinq colonnes de la grille. */
 .faq-col {
   align-self: start;
   margin-top: 5rem;
@@ -45,7 +44,7 @@
   grid-column: 7 / span 5;
 }
 
-/* Tablet: колонки рядом, по 4 из 8 */
+/* Tablette : deux colonnes de quatre sur une grille de huit. */
 @media (max-width: 63.9375rem) {
   .faq-title,
   .faq-intro {
@@ -59,7 +58,7 @@
   }
 }
 
-/* Mobile: всё в столбик */
+/* Mobile : les questions sont empilées. */
 @media (max-width: 37.4375rem) {
   .faq-col-left,
   .faq-col-right {

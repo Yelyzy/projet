@@ -2,11 +2,11 @@
   position: relative;
   isolation: isolate;
   grid-auto-rows: 1fr;
-  row-gap: var(--space-xs); // 16px
-  padding-block: var(--space-l); // 48px
+  row-gap: var(--space-xs); // 16 px
+  padding-block: var(--space-l); // 48 px
   color: var(--text-white);
 
-  // синий фон на 40px шире сетки с каждой стороны
+  // Le fond bleu dépasse de 40 px de chaque côté de la grille.
   &::before {
     content: "";
     position: absolute;
@@ -35,43 +35,11 @@
   color: var(--text-orange-light);
 }
 
-.button-small {
-  display: inline-flex;
-  padding: 0.25rem 1rem;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--secondary-blue-100);
-  color: var(--primary-blue-100);
-  transition: background-color 0.2s;
-
-  &:hover {
-    text-decoration: none;
-    background-color: color-mix(
-      in srgb,
-      var(--secondary-blue-100) 80%,
-      transparent
-    );
-  }
-}
-
 @media (max-width: 37.4375rem) {
-  .rubrique {
-    row-gap: 1.25rem;
-  }
-
-  .rubrique__title {
-    grid-column: 1 / -1;
-  }
-
-  .rubrique > .article-card:first-of-type,
-  .rubrique > .article-card:first-of-type.is-open {
-    grid-row: 2;
-  }
-
   .rubrique {
     display: flex;
     flex-direction: column;
-    row-gap: 1.25rem; // 20px между заголовком и карточками
+    row-gap: 1.25rem; // 20 px entre le titre et les cartes.
   }
 
   .rubrique-title {

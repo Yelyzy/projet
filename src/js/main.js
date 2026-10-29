@@ -1,6 +1,4 @@
-// ==========================================================
-// Accordion (FAQ)
-// ==========================================================
+// Accordéon de la FAQ
 const accItems = document.querySelectorAll(".acc-item");
 
 const setAccOpen = (item, open) => {
@@ -9,11 +7,18 @@ const setAccOpen = (item, open) => {
   item.querySelector(".acc-panel").inert = !open;
 };
 
-accItems.forEach((item) => {
+accItems.forEach((item, index) => {
+  const button = item.querySelector("button");
+  const panel = item.querySelector(".acc-panel");
+  const panelId = `acc-panel-${index + 1}`;
+
+  button.setAttribute("aria-controls", panelId);
+  panel.id = panelId;
+
   item.querySelector("button").addEventListener("click", () => {
     const willOpen = !item.classList.contains("is-open");
 
-    // fermer tous les autres questions
+    // Ferme toutes les autres questions.
     accItems.forEach((other) => {
       if (other !== item) setAccOpen(other, false);
     });
@@ -22,7 +27,7 @@ accItems.forEach((item) => {
   });
 });
 
-// Lors du chargement, une seule question est ouverte : celle marquée « is-open » ; s'il n'y en a pas, c'est la première.
+// Au chargement, ouvre la question marquée ou, à défaut, la première.
 const initiallyOpen =
   document.querySelector(".acc-item.is-open") || accItems[0];
 
@@ -36,14 +41,18 @@ navItems.forEach((navitem) => {
   if (!dropdown || !navButton) return;
 
   navButton.addEventListener("click", () => {
-    const dropdowns = document.querySelectorAll(".dropdown-menu");
-    dropdowns.forEach((down) => {
-      if (down !== dropdown) {
-        down.classList.remove("open");
-      }
-    });
+    const shouldOpen = !dropdown.classList.contains("open");
 
-    dropdown.classList.toggle("open");
+    navItems.forEach((otherItem) => {
+      const otherDropdown = otherItem.querySelector(".dropdown-menu");
+      const otherButton = otherItem.querySelector(".body-large");
+      if (!otherDropdown || !otherButton) return;
+
+      const isOpen = otherDropdown === dropdown && shouldOpen;
+      otherDropdown.classList.toggle("open", isOpen);
+      otherDropdown.setAttribute("aria-hidden", String(!isOpen));
+      otherButton.setAttribute("aria-expanded", String(isOpen));
+    });
   });
 });
 
@@ -115,9 +124,10 @@ if (switchInput) {
 }
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const reelVideos = document.querySelectorAll(".video-reel");
 
 if (reduceMotion.matches) {
-  document.querySelectorAll(".reel-video").forEach((video) => {
+  reelVideos.forEach((video) => {
     video.pause();
     video.removeAttribute("autoplay");
   });
@@ -125,19 +135,39 @@ if (reduceMotion.matches) {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(({ target, isIntersecting }) => {
     if (reduceMotion.matches) return;
-    isIntersecting ? target.play().catch(() => {}) : target.pause();
+    if (!isIntersecting) {
+      target.pause();
+      return;
+    }
+
+    target.play().catch((error) => {
+      if (!["AbortError", "NotAllowedError"].includes(error.name)) {
+        console.error("La lecture de la vidéo a échoué.", error);
+      }
+    });
   });
 });
 
-document
-  .querySelectorAll(".reel-video")
-  .forEach((video) => observer.observe(video));
+reelVideos.forEach((video) => observer.observe(video));
 
-// ==========================================================
-// Article card
-// ==========================================================
+reduceMotion.addEventListener("change", ({ matches }) => {
+  if (matches) {
+    reelVideos.forEach((video) => {
+      video.pause();
+      video.removeAttribute("autoplay");
+    });
+    return;
+  }
 
-// Desktop et tablette
+  reelVideos.forEach((video) => {
+    observer.unobserve(video);
+    observer.observe(video);
+  });
+});
+
+// Cartes d’articles
+
+// Ordinateur et tablette
 const isWide = window.matchMedia("(min-width: 37.5rem)");
 
 const fitExcerpt = (card) => {
@@ -152,7 +182,7 @@ const fitExcerpt = (card) => {
   }
 };
 
-// Changer le nom de la rubrique selon la carte ouverte
+// Met à jour le nom de la rubrique selon la carte ouverte.
 const updateRubric = (card) => {
   const rubric = card.dataset.rubric;
   if (!rubric) return;
@@ -224,7 +254,7 @@ document.querySelectorAll(".article-card").forEach((card, index) => {
   });
 });
 
-// При загрузке (десктоп и планшет) открыта средняя карточка
+// À l’ouverture, déploie la carte centrale sur ordinateur et tablette.
 if (isWide.matches) {
   document.querySelectorAll(".rubrique").forEach((section) => {
     const cards = section.querySelectorAll(":scope > .article-card");

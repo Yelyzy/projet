@@ -14,7 +14,7 @@
     margin: 0;
     aspect-ratio: 3 / 4;
 
-    // Móvil / tablet: pequeña y alineada como en Figma
+    // Mobile et tablette : image réduite et alignée à droite.
     align-self: flex-start;
     width: min(14.5625rem, 100%);
   }
@@ -39,7 +39,7 @@
     display: contents;
   }
 
-  // ───── Desktop (1024px y más) ─────
+  // Écrans à partir de 1024 px
   @media (min-width: 64rem) {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -56,8 +56,8 @@
     &__media {
       grid-column: 4 / 7;
       grid-row: 2;
-      width: 100%; // vuelve a ocupar toda su columna del grid
-      align-self: auto; // deja que el grid decida
+      width: 100%;
+      align-self: auto;
     }
 
     &__quote {

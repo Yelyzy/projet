@@ -1,5 +1,5 @@
 .reels-inner {
-  margin-left: var(--grid-margin); // рамка начинается с колонки 1
+  margin-left: var(--grid-margin); // Le cadre commence à la première colonne.
   padding: 2.5rem;
   border: 1px solid var(--stroke-red);
   border-right: 0;
@@ -22,15 +22,15 @@
 
 .reels .h4-regular {
   grid-column: 1 / -1;
-  margin: 2rem 0 0; // 32px от карточек
+  margin: 2rem 0 0; // Espace de 32 px au-dessus des vidéos.
   text-align: center;
   text-transform: uppercase;
 }
 
-// ---------- Cards reels ----------
+// ---------- Cartes vidéo ----------
 .reel {
   position: relative;
-  isolation: isolate; // наложение действует только внутри карточки
+  isolation: isolate; // Limite le mélange des calques à la carte.
   aspect-ratio: 296 / 549;
   overflow: hidden;
 
@@ -53,7 +53,7 @@
   object-fit: cover;
 }
 
-// ---------- filtres ----------
+// ---------- Filtres ----------
 .reel-blue {
   --reel-tint: #2e3584;
   --reel-blend: color;
@@ -86,18 +86,14 @@
   text-align: center;
 }
 
-// ==========================================================
-// Tablette: 2 colonnes
-// ==========================================================
+// Tablette : deux colonnes
 @media (max-width: 63.9375rem) {
   .reels-carousel {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-// ==========================================================
 // Mobile
-// ==========================================================
 @media (max-width: 37.4375rem) {
   .reels-inner {
     margin-left: 0;
@@ -117,7 +113,7 @@
 
   .reels-carousel {
     display: flex;
-    gap: 0.75rem; // 12px
+    gap: 0.75rem; // 12 px
     margin-top: 1.5rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;

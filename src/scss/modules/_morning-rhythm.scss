@@ -20,7 +20,7 @@
     &--small {
       aspect-ratio: 25 / 16;
 
-      // Mobile / tablette : petite et collée à droite
+      // Mobile et tablette : image réduite et alignée à droite.
       align-self: flex-end;
       width: min(14.5625rem, 100%);
     }
@@ -46,7 +46,7 @@
     display: contents;
   }
 
-  // ───── Desktop (1024px et plus) ─────
+  // Écrans à partir de 1024 px
   @media (min-width: 64rem) {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -66,22 +66,22 @@
     }
 
     &__media--large {
-      grid-column: 1 / 6; // 5 colonnes
+      grid-column: 1 / 6;
       grid-row: 3;
       align-self: stretch;
       aspect-ratio: auto;
     }
 
     &__text {
-      grid-column: 6 / 10; // 4 colonnes
+      grid-column: 6 / 10;
       grid-row: 3;
     }
 
     &__media--small {
-      grid-column: 10 / 13; // 3 colonnes
+      grid-column: 10 / 13;
       grid-row: 3;
-      width: 100%; // reprend toute sa colonne du grid
-      align-self: auto; // laisse le grid (align-items: end) décider
+      width: 100%;
+      align-self: auto;
     }
 
     &__text-column {

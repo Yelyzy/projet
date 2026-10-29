@@ -1,5 +1,5 @@
-<section class="faq">
-  <h2 class="faq-title title-small">
+<section class="faq" aria-labelledby="faq-title">
+  <h2 class="faq-title title-small" id="faq-title">
     Same city
     <span class="title-small-numbers accent">360°</span>
     new angles.
@@ -16,18 +16,18 @@
   <div class="faq-col faq-col-left">
     <include
       src="./components/accordion.html"
-      locals='{"question":"What is trois cent 60?","answer":"A magazine about the city of Fribourg, told from many points of view."}'
+      locals='{"question":"What is trois cent 60?","answer":"A magazine about the city of Fribourg, told from many points of view.","open":""}'
     ></include>
     <include
       src="./components/accordion.html"
-      locals='{"question":"Can I share my own story?","answer":"Yes. Send us your idea through the contact page and the team will get back to you."}'
+      locals='{"question":"Can I share my own story?","answer":"Yes. Send us your idea through the contact page and the team will get back to you.","open":""}'
     ></include>
   </div>
 
   <div class="faq-col faq-col-right">
     <include
       src="./components/accordion.html"
-      locals='{"question":"How often do you publish?","answer":"New stories every week."}'
+      locals='{"question":"How often do you publish?","answer":"New stories every week.","open":""}'
     ></include>
     <include
       src="./components/accordion.html"
@@ -35,7 +35,7 @@
     ></include>
     <include
       src="./components/accordion.html"
-      locals='{"question":"How can I contact the team?","answer":"Write to us from the contact page."}'
+      locals='{"question":"How can I contact the team?","answer":"Write to us from the contact page.","open":""}'
     ></include>
   </div>
 </section>

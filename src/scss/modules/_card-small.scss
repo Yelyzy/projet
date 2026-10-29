@@ -38,7 +38,7 @@
     object-fit: cover;
   }
 
-  // Filtro azul por defecto
+  // Filtre bleu par défaut.
   &::after {
     content: "";
     position: absolute;
@@ -50,7 +50,7 @@
     pointer-events: none;
   }
 
-  // ───── Arriba a la izquierda ─────
+  // En haut à gauche
   &__head {
     position: absolute;
     top: var(--space-xs);
@@ -70,7 +70,7 @@
     color: var(--card-ink);
   }
 
-  // Título: presente en el HTML pero oculto hasta el hover
+  // Le titre est masqué jusqu’à l’ouverture de la carte.
   &__title {
     max-height: 0;
     overflow: hidden;
@@ -80,7 +80,7 @@
       max-height 0.3s ease;
   }
 
-  // ───── Abajo a la derecha ─────
+  // En bas à droite
   &__foot {
     position: absolute;
     right: 0.5rem;
@@ -106,12 +106,12 @@
     color: var(--card-accent);
   }
 
-  // Teclado: funciona en cualquier dispositivo
+  // La carte reste accessible au clavier.
   &:focus-visible {
     @include card-small-open;
   }
 
-  // Ratón: solo en dispositivos con hover
+  // Le survol est réservé aux appareils qui le prennent en charge.
   @media (hover: hover) {
     &:hover {
       @include card-small-open;

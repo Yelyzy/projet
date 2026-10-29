@@ -8,7 +8,7 @@
     text-align: center;
   }
 
-  // Móvil: columna a todo el ancho
+  // Mobile : une colonne sur toute la largeur.
   &__list {
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@
     min-width: 0;
   }
 
-  // ───── Móvil (< 600px): tarjeta horizontal y cerrada ─────
+  // Mobile : cartes horizontales ouvertes.
   @media (max-width: 37.4375rem) {
     .card-small {
       aspect-ratio: 15 / 8;
@@ -35,7 +35,7 @@
     }
   }
 
-  // ───── Desde 600px: carrusel horizontal ─────
+  // À partir de 600 px : carrousel horizontal.
   @media (min-width: 37.5rem) {
     &__title {
       text-align: left;
