@@ -123,4 +123,16 @@
       width: min(14.5625rem, 100%);
     }
   }
+
+  @media (max-width: 63.9375rem) {
+    &__copy-column {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    &__quote {
+      margin-bottom: var(--space-m);
+    }
+  }
 }
